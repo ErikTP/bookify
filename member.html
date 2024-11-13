@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Läs, dela och upptäck böcker hos oss på Bokklubben!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://kit.fontawesome.com/1cafef2066.js" crossorigin="anonymous"></script>
+    <script src="scripts/bookform.js" defer ></script>
+    <script src="scripts/review.js" defer ></script>
+    <script src="scripts/modal.js" defer></script>
+    <link rel="stylesheet" href="css/modal.css">
+    <title>Bokklubben</title>
+</head>
+
+<body>
+    <header>
+        <div class="site-header inner-wrapper">
+            
+            <span class="site-logo">
+                <a href="#">Bokklubben</a>
+            </span>
+       
+            <nav> 
+                <ul>
+                    <li> 
+                        <a href="#books">Lästips</a>
+                    </li>
+                    <li> 
+                        <a href="#reviews">Recensioner</a>
+                    </li>
+                    <li> 
+                        <a href="">Logga in</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main> 
+ 
+        <section class="bg-light">
+            <div class="grid grid-2-col hero inner-wrapper"> 
+
+                <div class="hero-left">
+                    <h1>Välkommen member!</h1>
+                </div>
+
+                <div class="hero-right">
+                    Här är medlemsinfo typ.
+                </div>    
+                
+            </div> 
+        </section>
+
+
+    <!-- Books -->
+    <section id="books" class="inner-wrapper">
+            
+        <h2>Låna böcker</h2>
+        <p>Här kan medlemmen låna och reservera böcker.</p>
+ 
+        <section class="book-preview-container">
+            <div class="book-preview">
+                <img src="books/det-borjar-med-oss.jpg" aria-label="Bokens titel, klicka för att läsa mer" alt="Bild av boken bokens titel" class="myBtn">
+            </div>
+            
+            <div class="book-preview">
+                <img src="books/forbannade-karlek.jpg" aria-label="Bokens titel, klicka för att läsa mer" alt="Bild av boken bokens titel" class="myBtn">
+            </div>
+        
+            <div class="book-preview">
+                <img src="books/intermezzo.jpg" aria-label="Bokens titel, klicka för att läsa mer" alt="Bild av boken bokens titel" class="myBtn">
+        
+            </div>
+            <div class="book-preview">
+                <img src="books/natten-vi-forlorade-honom.jpg" aria-label="Bokens titel, klicka för att läsa mer" alt="Bild av boken bokens titel" class="myBtn">
+        
+            </div>
+            <div class="book-preview">
+                <img src="books/nexus.jpg" aria-label="Bokens titel, klicka för att läsa mer" alt="Bild av boken bokens titel" class="myBtn">
+        
+            </div>
+
+        </section>
+
+
+        <!-- Books -->
+        <section id="books" class="inner-wrapper">
+            
+            <h2>Lämna din recension</h2>
+            <p>Här kan medlemmen lägga till en recension till en bok.</p>
+            
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+              <!-- Tre olika böcker -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Book Title</h2>
+                    <img src="https://placehold.co/200" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas autem doloremque cupiditate aperiam aut optio ea quidem omnis ab placeat dolor distinctio alias corrupti ducimus labore, aliquid rerum perspiciatis odit voluptates! Cum labore illum a fugit, laudantium accusantium qui! Reprehenderit tenetur maiores dolor, incidunt nemo nesciunt maxime ab unde consectetur?</p>
+                </div>
+            </div>
+
+        </section> 
+
+        <!-- Add a review -->     
+        <section id="addReview" class="inner-wrapper">
+            <div class="grid grid-2-col">
+
+                <div>
+                    <h2 id="reviews">Lämna en recension</h2>
+
+                    <form id="reviewForm">
+                        <label for="reviewNameInput">Ditt namn</label>
+                        <input type="text" id="reviewNameInput" name="name" required aria-required="true" placeholder="Ditt namn">
+
+                        <label for="reviewBookInput">Bokens titel</label>
+                        <input type="text" id="reviewBookInput" name="text" required aria-required="true" placeholder="Bokens titel">
+
+                        <label for="reviewWriterInput">Bokens författare</label>
+                        <input type="text" id="reviewWriterInput" name="text" required aria-required="true" placeholder="Bokens författare">
+
+                        <label for="rating">Betyg (1-5)</label>
+                        <select id="rating" name="rating" required aria-required="true">
+                            <option value="">Välj ett betyg</option>
+                            <option value="1">1 - Mycket dålig</option>
+                            <option value="2">2 - Dålig</option>
+                            <option value="3">3 - Okej</option>
+                            <option value="4">4 - Bra</option>
+                            <option value="5">5 - Mycket bra</option>
+                        </select>
+
+                        <label for="comments">Kommentarer</label>
+                        <textarea id="comments" name="comments" rows="4" placeholder="Skriv dina tankar om boken här..." required></textarea>
+                        
+                        <button type="button" class="button button-light scale-up" onclick="reviewInput()" aria-label="Skicka in din recension">Skicka</button>
+                    </form>
+                </div>
+
+                <div class="recensioner-container"> 
+                    <h2>Recensioner</h2>
+                    <ul id="reviewResult">
+                    <!-- Review Input Result here -->
+                    </ul>
+                </div>
+
+            </div>           
+        </section>
+
+        <section class="inner-wrapper"></section>
+            <h2>Lånehistorik</h2>
+            <p>Här kan medlemmen se sin lånehistorik</p>
+        </section>
+        
+        <footer>
+            <div class="footer-top inner-wrapper"> 
+                
+                <h2>Kontakta oss</h2>
+                
+                <div class="grid auto-grid"> 
+                    <p> Telefon: <a href="tel:+46000099111">+46 12 34 56 789</a> </p>
+                    <p> E-post: <a href="mailto:email@example.com">hej@bokklubben.se</a></p>   
+                    <ul>
+                        <li><a href="#" target="_blank" aria-label="Facebook">
+                            <img src="svg/facebook.svg" height="40" width="40" alt="Facebook">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank" aria-label="Instagram">
+                            <img src="svg/instagram.svg" height="40" width="40" alt="Instagram">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 Bokklubben. Alla rättigheter förbehållna.</p>
+            </div>
+        
+        </footer>
+
+    </main>
+
+</body>
+</html>
