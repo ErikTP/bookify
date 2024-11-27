@@ -1,18 +1,16 @@
 const signupForm = document.getElementById('signupForm');
 const signupUsernameInput = document.getElementById('username');
 const signupPasswordInput = document.getElementById('password');
-const emailInput = document.getElementById('email');
-const phoneInput = document.getElementById('phone');
+const role = "user";
 
-signupForm.addEventListener('submit', function(event) {
+signupForm.addEventListener('submit', async(event) => {
     event.preventDefault();
 
     const username = signupUsernameInput.value.trim();
     const password = signupPasswordInput.value.trim();
-    const email = emailInput.value.trim();
-    const phone = phoneInput.value.trim();
+   
 
-    if (username === '' || password === '' || email === '' || phone === '') {
+    if (username === '' || password === '') {
         alert('Vänligen fyll i alla fält!');
         return;
     }
@@ -20,12 +18,29 @@ signupForm.addEventListener('submit', function(event) {
     const user = {
         username: username,
         password: password,
-        email: email,
-        phone: phone,
+        role: role,
+        history: [],
+        reviews: []
     };
 
-    localStorage.setItem('user', JSON.stringify(user));
 
-    alert(`Konto skapat! Du kan nu logga in som ${username}.`);
-    window.location.href = 'login.html'; 
-});
+    try {
+        const response = await fetch('https://localhost:3005/users', {
+            method: "POST", 
+            body: JSON.stringify(user),
+            headers: {"Content-Type": "application/json"
+
+            }
+        });
+
+        if (response.ok) {
+            console.log('User created:', user);
+        } else {
+            console.log('Failed to create user:', response.status);
+        }
+        } catch (error) {
+            console.error("Error creating user:", error);
+        }
+    });
+
+
