@@ -35,7 +35,6 @@ signupForm.addEventListener("submit", async (event) => {
       window.location.reload(); // Uppdatera sidan
     } catch (error) {
       console.error("Error creating user:", error);
-     console.log("Något gick fel när användare skulle skapas.");
     }
   });
 

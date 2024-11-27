@@ -9,11 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" href="css/styles.css" />
-    <script src="https://kit.fontawesome.com/1cafef2066.js" crossorigin="anonymous"></script>
-    <script src="scripts/bookform.js" defer ></script>
-    <script src="scripts/review.js" defer ></script>
-    <script src="scripts/modal.js" defer></script>
-    <link rel="stylesheet" href="css/modal.css">
+    <script src="scripts/member.js" defer ></script>
+    <script src="scripts/member-review.js" defer ></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/member.css">
     <title>Bokklubben</title>
 </head>
 
@@ -22,7 +21,7 @@
         <div class="site-header inner-wrapper">
             
             <span class="site-logo">
-                <a href="#">Bokklubben</a>
+                <a href="index.html">Bokklubben</a>
             </span>
        
             <nav> 
@@ -34,7 +33,7 @@
                         <a href="#reviews">Recensioner</a>
                     </li>
                     <li> 
-                        <a href="">Logga in</a>
+                        <a href="login.html">Logga in</a>
                     </li>
                 </ul>
             </nav>
@@ -44,117 +43,92 @@
     <main> 
  
         <section class="bg-light">
+
+            <h1 class="inner-wrapper">Välkommen member!</h1>
+
             <div class="grid grid-2-col hero inner-wrapper"> 
 
                 <div class="hero-left">
-                    <h1>Välkommen member!</h1>
+
+                    <h2>Mina lån</h2>
+                    <p>Lånade böcker just nu.</p>
+
                 </div>
 
                 <div class="hero-right">
-                    Här är medlemsinfo typ.
+                    <h2>Min lånehistorik</h2>
+                    <p>Här kan medlemmen se sin lånehistorik</p>
                 </div>    
                 
             </div> 
         </section>
 
 
-    <!-- Books -->
-    <section id="books" class="inner-wrapper">
-            
-        <h2>Låna böcker</h2>
-        <p>Här kan medlemmen låna och reservera böcker.</p>
- 
-        <section class="book-preview-container">
-            <div class="book-preview">
-                <img src="books/det-borjar-med-oss.jpg" aria-label="Bokens titel, klicka för att läsa mer" alt="Bild av boken bokens titel" class="myBtn">
-            </div>
-            
-            <div class="book-preview">
-                <img src="books/forbannade-karlek.jpg" aria-label="Bokens titel, klicka för att läsa mer" alt="Bild av boken bokens titel" class="myBtn">
-            </div>
-        
-            <div class="book-preview">
-                <img src="books/intermezzo.jpg" aria-label="Bokens titel, klicka för att läsa mer" alt="Bild av boken bokens titel" class="myBtn">
-        
-            </div>
-            <div class="book-preview">
-                <img src="books/natten-vi-forlorade-honom.jpg" aria-label="Bokens titel, klicka för att läsa mer" alt="Bild av boken bokens titel" class="myBtn">
-        
-            </div>
-            <div class="book-preview">
-                <img src="books/nexus.jpg" aria-label="Bokens titel, klicka för att läsa mer" alt="Bild av boken bokens titel" class="myBtn">
-        
+        <section class="inner-wrapper">
+
+            <h2>Låna böcker</h2>      
+            <p>Här kan du som medlem låna och reservera böcker.</p>
+
+            <ul id="memberBookListOutput" class="memberBookListOutput grid auto-grid">
+            </ul>
+
+            <!-- Modal HTML -->
+            <div id="reviewModal" class="review-modal">
+                <div class="review-modal-content">
+                    <span class="review-modal-close-button">&times;</span>
+
+                    <div id="reviewFormContainer">
+
+                        <h2>Lämna en recension</h2>
+
+                        <!-- Element för att visa bokens titel och författare -->
+                        <p id="modalBookTitle" class="book-meta"></p>
+                        <p id="modalBookAuthor" class="book-meta"></p>
+
+                        <!-- Formulär för recension -->
+                        <form id="reviewForm">
+                            <label for="reviewWritersName">Ditt namn:</label>
+                            <input type="text" name="reviewWritersName" id="reviewWritersName" required placeholder="Ditt namn"/>
+                            
+                            <label for="reviewComment">Kommentar:</label>
+                            <textarea id="reviewComment" name="comment" rows="4" placeholder="Skriv dina tankar om boken här..." required></textarea>
+                            
+                            <button type="submit" class="button button-light">Skicka Recension</button>
+                        </form>
+
+                    </div>
+
+                </div>
+
             </div>
 
         </section>
 
+        <section class="bg-light" id="reviews">
 
-        <!-- Books -->
-        <section id="books" class="inner-wrapper">
-            
-            <h2>Lämna din recension</h2>
-            <p>Här kan medlemmen lägga till en recension till en bok.</p>
-            
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-              <!-- Tre olika böcker -->
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2>Book Title</h2>
-                    <img src="https://placehold.co/200" alt="">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas autem doloremque cupiditate aperiam aut optio ea quidem omnis ab placeat dolor distinctio alias corrupti ducimus labore, aliquid rerum perspiciatis odit voluptates! Cum labore illum a fugit, laudantium accusantium qui! Reprehenderit tenetur maiores dolor, incidunt nemo nesciunt maxime ab unde consectetur?</p>
-                </div>
+            <div class="inner-wrapper">
+                
+                <h2>Lämnade recensioner från andra medlemmar</h2>
+                
+                <ul id="memberReviewOutPut" class="container">
+                    <!-- Review Input Result here -->
+                </ul>
+
+                <h2>Mina recensioner</h2>
+                <p>Visa enbart recensioner från användaren?</p>
+                <p>Med möjlighet att radera dessa</p>
+
             </div>
 
         </section> 
 
-        <!-- Add a review -->     
-        <section id="addReview" class="inner-wrapper">
-            <div class="grid grid-2-col">
-
-                <div>
-                    <h2 id="reviews">Lämna en recension</h2>
-
-                    <form id="reviewForm">
-                        <label for="reviewNameInput">Ditt namn</label>
-                        <input type="text" id="reviewNameInput" name="name" required aria-required="true" placeholder="Ditt namn">
-
-                        <label for="reviewBookInput">Bokens titel</label>
-                        <input type="text" id="reviewBookInput" name="text" required aria-required="true" placeholder="Bokens titel">
-
-                        <label for="reviewWriterInput">Bokens författare</label>
-                        <input type="text" id="reviewWriterInput" name="text" required aria-required="true" placeholder="Bokens författare">
-
-                        <label for="rating">Betyg (1-5)</label>
-                        <select id="rating" name="rating" required aria-required="true">
-                            <option value="">Välj ett betyg</option>
-                            <option value="1">1 - Mycket dålig</option>
-                            <option value="2">2 - Dålig</option>
-                            <option value="3">3 - Okej</option>
-                            <option value="4">4 - Bra</option>
-                            <option value="5">5 - Mycket bra</option>
-                        </select>
-
-                        <label for="comments">Kommentarer</label>
-                        <textarea id="comments" name="comments" rows="4" placeholder="Skriv dina tankar om boken här..." required></textarea>
-                        
-                        <button type="button" class="button button-light scale-up" onclick="reviewInput()" aria-label="Skicka in din recension">Skicka</button>
-                    </form>
-                </div>
-
-                <div class="recensioner-container"> 
-                    <h2>Recensioner</h2>
-                    <ul id="reviewResult">
-                    <!-- Review Input Result here -->
-                    </ul>
-                </div>
-
-            </div>           
-        </section>
-
-        <section class="inner-wrapper"></section>
+        <section class="inner-wrapper">
             <h2>Lånehistorik</h2>
             <p>Här kan medlemmen se sin lånehistorik</p>
+            <p>Här ska vara ett meddelande som säger att lånehistoriken är tom om inget har lånats av användaren.</p>
+            <p>Annars listas tidigare lånade böcker och även de som är lånade just nu.</p>
+            <p>Återlämnade böcker kan ha status läst.</p>
+            <p>Böcker som är lånade nu böcker kan ha status läst.</p>
         </section>
         
         <footer>
@@ -181,7 +155,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>© 2024 Bokklubben. Alla rättigheter förbehållna.</p>
+                <p>© 2024 Bookify. Alla rättigheter förbehållna.</p>
             </div>
         
         </footer>
