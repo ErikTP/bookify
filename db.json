@@ -1,18 +1,103 @@
 {
-    "users": [
-      {
-        "username": "admin",
-        "password": "admin",
-        "role": "admin"
-      },
-      {
-        "username": "member",
-        "password": "member",
-        "role": "member"
-      }
-    ],
-    "books": [
-    ],
-    "reviews": [
-    ]
-  }
+  "books": [
+    {
+      "id": "42b4",
+      "title": "Det börjar med oss",
+      "author": "Colleen Hoover",
+      "synopsis": "Den efterlängtade fortsättningen på succéromanen ”Det slutar med oss”, som blivit ett internationellt fenomen och en osannolik framgång på #BookTok. Här får vi äntligen ta del av …",
+      "genre": "Romantik",
+      "cover": "/images/det-borjar-med-oss.jpg",
+      "status": "available",
+      "reviews": []
+    },
+    {
+      "id": "6d39",
+      "title": "Förbannade kärlek",
+      "author": "Colleen Hoover",
+      "synopsis": "När Tate Collins flyttar till San Fransisco för att plugga till sjuksköterska är Miles Archer den första hon träffar. Han ligger redlös i korridoren utanför hennes brors lägenhet",
+      "genre": "Romantik",
+      "cover": "/images/forbannade-karlek.jpg",
+      "status": "available",
+      "reviews": []
+    },
+    {
+      "id": "8b14",
+      "title": "Intermezzo",
+      "author": "Sally Rooney",
+      "synopsis": "Förutom att de är bröder har Peter och Ivan Koubek inte mycket gemensamt. Peter, en idealistisk jurist i trettioårsåldern, är karismatisk och framgångsrik på ytan men kämpar i",
+      "genre": "Romantik",
+      "cover": "/images/intermezzo.jpg",
+      "status": "available",
+      "reviews": []
+    },
+    {
+      "id": "4fa1",
+      "title": "Natten vi förlorade honom",
+      "author": "Laura Dave",
+      "synopsis": "När Liam Noone dör, till synes i en tragisk olycka, lämnar han ett världsomspännande hotellimperium och flera familjer efter sig. Nora, dottern från hans första äktenskap, har",
+      "genre": "Romantik",
+      "cover": "/images/natten-vi-forlorade-honom.jpg",
+      "status": "available",
+      "reviews": []
+    },
+    {
+      "id": "79c0",
+      "title": "Nexus",
+      "author": "Yuval Noah Harari",
+      "synopsis": "De senaste 100 000 årens alla upptäckter, uppfinningar och erövringar har gjort människan enormt mäktig. Ändå befinner vi oss i en existentiell kris. Världen står inför en ekologisk kollaps, mängden desinformation ökar, och vi kastar oss huvudstupa in i AI-ålderns nya informationsnätverk som hotar att förinta oss.",
+      "genre": "Vetenskap",
+      "cover": "/images/nexus.jpg",
+      "status": "available",
+      "reviews": []
+    },
+    {
+      "id": "d02c",
+      "title": "Normal people",
+      "author": "Sally Rooney",
+      "synopsis": "Connell and Marianne grow up in the same small town in the west of Ireland, but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner. But when the two strike up a conversation - awkward but electrifying - something life-changing begins.",
+      "genre": "Mysterium",
+      "cover": "/images/normal-people.jpg",
+      "status": "available",
+      "reviews": []
+    },
+    {
+      "id": "03b3",
+      "title": "Rich boy",
+      "author": "Caroline Ringskog Ferrada-Noli",
+      "synopsis": "En mamma och en dotter. Två kvinnoliv sammanvävda av tid, kärlek, ensamhet och en delad utsatthet. Vad innebär det att leva, arbeta och älska som kvinna, i ett samhälle som inte kan få nog av sina rich boys? Marianne kommer från en borgerlig familj på Lidingö som fallit samman i sviterna av pappans död och skapat en ung och osäker kvinna. Det är sextiotal i Stockholm och Marianne läser till psykolog. Hon är feminist, men osäker på hur man omsätter det i praktiken. När den karismatiske Kaj, en ledargestalt inom vänstern, riktar sitt ljus mot henne följer hon med, trots att hans beteende blir allt mer våldsamt. Annika är Mariannes dotter. Trettio år senare slungas hon in i en djup kris som tvingar henne till självrannsakan. Det är tvåtusental i Stockholm, lättare att vara kvinna på vissa sätt, men svårare på andra.",
+      "genre": "Klassiker",
+      "cover": "/images/rich-boy.jpg",
+      "status": "available",
+      "reviews": []
+    },
+    {
+      "id": "4e1a",
+      "title": "Testamente",
+      "author": "Nina Wähä",
+      "synopsis": "I Testamente möter vi Annie, som när hon blir gravid motvilligt åker hem till platsen där hon växte upp. Bondgården ligger i Tornedalen, med sitt eget språk, sitt eget meänkieli. Inte svenska, inte finska, något tredje. Ingen blir särskilt glad över att se henne.",
+      "genre": "Mytologi",
+      "cover": "/images/testamente.jpg",
+      "status": "available",
+      "reviews": []
+    }
+  ],
+  "users": [
+    {
+      "id": "5d4f",
+      "username": "admin",
+      "password": "password",
+      "role": "admin",
+      "history": [],
+      "reviews": []
+    },
+    {
+      "id": "7928",
+      "username": "user",
+      "password": "password",
+      "role": "user",
+      "history": [],
+      "reviews": []
+    }
+  ],
+  "reviews": []
+}

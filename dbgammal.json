@@ -1,0 +1,18 @@
+{
+    "users": [
+      {
+        "username": "admin",
+        "password": "admin",
+        "role": "admin"
+      },
+      {
+        "username": "member",
+        "password": "member",
+        "role": "member"
+      }
+    ],
+    "books": [
+    ],
+    "reviews": [
+    ]
+  }
