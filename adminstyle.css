@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+	--snow: #fff;
+	--coffee: #000;
+    --green: #247e77;
+    --dark-green: #365d58;
+    --beige: #fdebda;
+    --dark-beige: #ca9661;
+    --tomato: #cb3938;
+    --orange: #f79043;
+    --purple: #3e2d4a;  
+}
+
+body {
+    color: var(--coffee);
+    font-family: "Lato", sans-serif;
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
+    font-weight: 400;
+    margin: 1rem;
+}
+main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+button {
+    cursor: pointer;
+    align-content: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 0px #1728266a;
+}
+
+/* Headings */
+h1, h3, h4, h5, h6 {
+    color: var(--green);
+    font-family: "Playfair Display", serif;
+    font-weight: 900;
+    text-align: center;
+}
+h2 {
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    color: var(--green);
+    background-color:antiquewhite;
+    box-shadow: 0px 0px 5px 0px #1728266a;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 2px solid #247e77;
+    font-weight: 900;
+    padding: 0.3rem;
+    width: 100%;
+}
+li[data-status="available"] {
+    background-color:#48c7bc;
+}
+li[data-status="not available"] {
+    background-color:#ec8d8d;
+}
+li:hover[data-status="available"] {
+    background-color:#31e0d2;
+    transition: 0.5s;
+}
+li:hover[data-status="not available"] {
+    background-color:#f79043;
+    transition: 0.5s;
+}
+li button {
+    height: 30px;
+    width: 30px;
+    margin-right: 3px;
+    background-color: #acfff7;
+    border: 0;
+}
+li button:hover {
+    background-color: #cffffb;
+    transition: 0.3s;
+    box-shadow: 0px 0px 5px white;
+}
+li {
+    display: grid;
+    padding: 0.7rem;
+    margin-top: 0.3rem;
+    background-color: #247e77;
+    color: white;
+    font-size:medium;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.634);
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 0px #1728266a;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+li:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+li:last-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+details {
+    margin-right: 6rem;
+    padding: 0.2rem;
+}
+
+select {
+    padding: 0.2rem;
+    width: 100%;
+    cursor: pointer;
+    border: 2px solid #247e77;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+input[type="file"] {
+    background-color: white;
+}
+
+.form-container {
+    padding: 1rem;
+    border: 0;
+    height: min-content;
+    justify-self: center;
+    width: 100%;
+    margin-right: 1rem;
+    background-color: rgb(229, 229, 229);
+    color:#172826;
+    box-shadow: 0px 0px 5px 0px #1728266a;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.form-container button {
+    border: 0;
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid #247e77;
+}
+.form-container button:hover {
+    background-color:#247e77;
+    color: white;
+    transition: 0.3s;
+    border: 2px solid #247e77;
+}
+.books-container {
+    list-style: none;
+    height: 550px;
+    overflow:scroll;
+    padding: 1rem;
+    justify-self: center;
+    width: 100%;
+    position: relative;
+}
+.books-container h2 {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.user-container h2 {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.user-container {
+    list-style: none;
+    height: 550px;
+    overflow: scroll;
+    padding: 1rem;
+    border: 0;
+    justify-self: center;
+    width: 100%;
+    position: relative;
+}
+
+input {
+    margin: 0.2rem;
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #247e77;
+}
+input[type="file"] {
+    cursor: pointer;
+}
+textarea {
+    width: 100%;
+    margin: 0.2rem;
+    padding: 0.5rem;
+    height: 180px;
+    border-radius: 10px;
+    border: 2px solid #247e77;
+}
+label {
+    margin-left: 0.2rem;
+}
+.delete-button {
+    align-self: baseline;
+    position:absolute;
+    right: 0;
+    margin-right: 1.5rem;
+
+}
+.edit-button {
+    align-self:baseline;
+    position: absolute;
+    right: 35px;
+    margin-right: 1.5rem;
+}
+.check-button {
+    align-self: baseline;
+    position: absolute;
+    right: 70px;
+    margin-right: 1.5rem;
+}
+.bookinfo {
+    display: flex;
+}
+.bookinfo img {
+    height: 60px;
+    margin: 0.5rem;
+}

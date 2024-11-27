@@ -79,6 +79,16 @@
       "cover": "/images/testamente.jpg",
       "status": "available",
       "reviews": []
+    },
+    {
+      "id": "d472",
+      "title": "test",
+      "author": "test",
+      "synopsis": "test",
+      "genre": "Biologi",
+      "cover": "/images/nexus.jpg",
+      "status": "available",
+      "reviews": []
     }
   ],
   "users": [

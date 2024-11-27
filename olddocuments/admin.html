@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Läs, dela och upptäck böcker hos oss på Bokklubben!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://kit.fontawesome.com/1cafef2066.js" crossorigin="anonymous"></script>
+    <script src="scripts/bookform.js" defer ></script>
+    <script src="scripts/review.js" defer ></script>
+    <script src="scripts/modal.js" defer></script>
+    <link rel="stylesheet" href="css/modal.css">
+    <title>Bokklubben</title>
+</head>
+
+<body>
+    <header>
+        <div class="site-header inner-wrapper">
+            
+            <span class="site-logo">
+                <a href="#">Bokklubben</a>
+            </span>
+       
+            <nav> 
+                <ul>
+                    <li> 
+                        <a href="#books">Lästips</a>
+                    </li>
+                    <li> 
+                        <a href="#reviews">Recensioner</a>
+                    </li>
+                    <li> 
+                        <a href="">Logga in</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main> 
+ 
+        <section class="bg-light">
+            <div class="grid grid-2-col hero inner-wrapper"> 
+
+                <div class="hero-left">
+                    <h1>Detta är adminsidan</h1>
+                </div>
+
+                <div class="hero-right">
+                   <p>Admin kan lägga till böcker.</p> 
+                   <p>Böcker har bild, titel, författare, infotext + kan få en recension kopplad till sig.</p>
+                   <p>Admin kan ta bort böcker.</p> 
+                   <p>Admin kan redigera böcker.</p> 
+
+                   <p>Vi ska ha ett formulär för att lägga till böcker.</p>
+                   <p>Tillagda böcker ska läggas till i en lista. I den listan ska admin kunna ta bort och redigera - dvs två knappar.</p>
+                </div>    
+                
+            </div> 
+        </section>
+            
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+              <!-- Tre olika böcker -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Book Title</h2>
+                    <img src="https://placehold.co/200" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas autem doloremque cupiditate aperiam aut optio ea quidem omnis ab placeat dolor distinctio alias corrupti ducimus labore, aliquid rerum perspiciatis odit voluptates! Cum labore illum a fugit, laudantium accusantium qui! Reprehenderit tenetur maiores dolor, incidunt nemo nesciunt maxime ab unde consectetur?</p>
+                </div>
+            </div>
+
+        </section> 
+
+        <!-- Add a book -->
+        <section id="addBook" class="bg-light">
+            <div class="inner-wrapper">
+
+                <div class="grid grid-2-col">
+                  
+                    <!-- GLÖM INTE ATT NAMGE SMART OCH FINT -->
+                    <div class="form-container" aria-labelledby="form-title">
+                        <form id="bookForm">
+                          <h2 id="form-title">Här lägger admin till bok</h2>
+
+                          <p>Lägg till fält för bild, och info (textarea).</p>
+
+                            <label for="bookTitle">Titel</label>
+                            <input type="text" id="titleInput" placeholder="Titel" aria-label="Skriv bokens titel här" required aria-required="true">
+                            
+                            <label for="bookAuthor">Författare</label>
+                            <input type="text" id="authorInput" placeholder="Författare" aria-label="Skriv bokens författare här" required aria-required="true">
+                         
+                            <button type="button" class="button button-light scale-up" onclick="bookInput()" aria-label="Skicka in din bok">Skicka</button>
+                        </form>
+                      </div>
+
+                    <div class="myBook-container">
+                        <h2>Detta är boklistan</h2>
+                        <p>I listan dyker boken upp - titel, författare och knappar för delete och edit</p>
+                        <ul id="myBook" class="input-result-list"> 
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-top inner-wrapper"> 
+                
+                <h2>Kontakta oss</h2>
+                
+                <div class="grid auto-grid"> 
+                    <p> Telefon: <a href="tel:+46000099111">+46 12 34 56 789</a> </p>
+                    <p> E-post: <a href="mailto:email@example.com">hej@bokklubben.se</a></p>   
+                    <ul>
+                        <li><a href="#" target="_blank" aria-label="Facebook">
+                            <img src="svg/facebook.svg" height="40" width="40" alt="Facebook">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank" aria-label="Instagram">
+                            <img src="svg/instagram.svg" height="40" width="40" alt="Instagram">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 Bokklubben. Alla rättigheter förbehållna.</p>
+            </div>
+        
+        </footer>
+
+    </main>
+
+</body>
+</html>
