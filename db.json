@@ -79,16 +79,6 @@
       "cover": "/images/testamente.jpg",
       "status": "available",
       "reviews": []
-    },
-    {
-      "id": "d472",
-      "title": "test",
-      "author": "test",
-      "synopsis": "test",
-      "genre": "Biologi",
-      "cover": "/images/nexus.jpg",
-      "status": "available",
-      "reviews": []
     }
   ],
   "users": [
@@ -149,46 +139,6 @@
       "name": "Hannele Test",
       "comment": "Integer sit amet ante et massa faucibus egestas vitae a nisi. Vivamus id ipsum sit amet erat auctor interdum vitae vel nibh. Quisque vulputate porttitor arcu eu finibus. Cras laoreet, turpis ut facilisis congue, odio arcu suscipit massa, in porta risus velit quis dolor. Phasellus faucibus varius metus, sit amet maximus mauris lacinia a. ",
       "bookId": "4fa1"
-    },
-    {
-      "id": "9d88",
-      "title": "test",
-      "author": "Av: test",
-      "name": "Test Test",
-      "comment": "Test",
-      "bookId": "d472"
-    },
-    {
-      "id": "c544",
-      "title": "Intermezzo",
-      "author": "Av: Sally Rooney",
-      "name": "Ipsum",
-      "comment": "lorem",
-      "bookId": "8b14"
-    },
-    {
-      "id": "17c0",
-      "title": "test",
-      "author": "Av: test",
-      "name": "Hannele Test",
-      "comment": "lorem",
-      "bookId": "d472"
-    },
-    {
-      "id": "37de",
-      "title": "Rich boy",
-      "author": "Av: Caroline Ringskog Ferrada-Noli",
-      "name": "Hannis",
-      "comment": "Detta är ännu ett test",
-      "bookId": "03b3"
-    },
-    {
-      "id": "4ac8",
-      "title": "Normal people",
-      "author": "Av: Sally Rooney",
-      "name": "Päivi",
-      "comment": "Recension till Normal People.",
-      "bookId": "d02c"
     }
   ]
 }
