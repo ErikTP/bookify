@@ -107,6 +107,14 @@
       "role": "user",
       "history": [],
       "reviews": []
+    },
+    {
+      "id": "ce68",
+      "username": "hanni",
+      "password": "test",
+      "role": "user",
+      "history": [],
+      "reviews": []
     }
   ],
   "reviews": []
