@@ -30,7 +30,7 @@
 }
 
 .button-reserve {
-    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    font-size: clamp(0.9rem, 4vw, 1rem);
     background: var(--orange);
     border: 0;
     border-radius: 0.04rem;
@@ -43,14 +43,14 @@
 }
 
 .button-review {
-    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    font-size: clamp(0.9rem, 4vw, 1rem);
     background: var(--purple);
     border: 0;
     border-radius: 0.04rem;
     color: var(--snow);
     display: block;
     font-weight: 600;
-    margin-block: 0.8rem;
+    margin-top: 0.8rem;
     padding: 0.3rem 0.5rem;
     transition: 0.3s;
 }
@@ -127,4 +127,16 @@
 .review p {
     font-size: clamp(0.9rem, 1.25vw, 1.1rem);
     margin-bottom: 1rem;
+}
+
+.book-item {
+    background: var(--snow);
+    padding: 1.2rem;  
+}
+
+.book-content {
+}
+
+.grid-member-books {
+    grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
 }

@@ -85,9 +85,11 @@ function handleListClick(event) {
 listEl.addEventListener("click", handleListClick);
 
 // Funktion för att rendera en lista av böcker
+
 function renderBooks(bookList, element) {
     bookList.forEach(book => {
         const listItem = document.createElement("li");
+        listItem.classList.add("book-item");
         listItem.setAttribute("data-book-id", book.id); // Lägg till bokens ID som data-attribut
 
         const bookCover = document.createElement("img");

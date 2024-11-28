@@ -64,42 +64,46 @@
         </section>
 
 
-        <section class="inner-wrapper">
+        <section class="bg-light">
 
-            <h2>Låna böcker</h2>      
-            <p>Här kan du som medlem låna och reservera böcker.</p>
+            <div class="inner-wrapper">
 
-            <ul id="memberBookListOutput" class="memberBookListOutput grid auto-grid">
-            </ul>
+                <h2>Låna böcker</h2>      
+                <p>Här kan du som medlem låna och reservera böcker.</p>
 
-            <!-- Modal HTML -->
-            <div id="reviewModal" class="review-modal">
-                <div class="review-modal-content">
-                    <span class="review-modal-close-button">&times;</span>
+                <ul id="memberBookListOutput" class="memberBookListOutput grid grid-member-books">
+                </ul>
 
-                    <div id="reviewFormContainer">
+                <!-- Modal HTML -->
+                <div id="reviewModal" class="review-modal">
+                    <div class="review-modal-content">
+                        <span class="review-modal-close-button">&times;</span>
 
-                        <h2>Lämna en recension</h2>
+                        <div id="reviewFormContainer">
 
-                        <!-- Element för att visa bokens titel och författare -->
-                        <p id="modalBookTitle" class="book-meta"></p>
-                        <p id="modalBookAuthor" class="book-meta"></p>
+                            <h2>Lämna en recension</h2>
 
-                        <!-- Formulär för recension -->
-                        <form id="reviewForm">
-                            <label for="reviewWritersName">Ditt namn:</label>
-                            <input type="text" name="reviewWritersName" id="reviewWritersName" required placeholder="Ditt namn"/>
-                            
-                            <label for="reviewComment">Kommentar:</label>
-                            <textarea id="reviewComment" name="comment" rows="4" placeholder="Skriv dina tankar om boken här..." required></textarea>
-                            
-                            <button type="submit" class="button button-light">Skicka Recension</button>
-                        </form>
+                            <!-- Element för att visa bokens titel och författare -->
+                            <p id="modalBookTitle" class="book-meta"></p>
+                            <p id="modalBookAuthor" class="book-meta"></p>
+
+                            <!-- Formulär för recension -->
+                            <form id="reviewForm">
+                                <label for="reviewWritersName">Ditt namn:</label>
+                                <input type="text" name="reviewWritersName" id="reviewWritersName" required placeholder="Ditt namn"/>
+                                
+                                <label for="reviewComment">Kommentar:</label>
+                                <textarea id="reviewComment" name="comment" rows="4" placeholder="Skriv dina tankar om boken här..." required></textarea>
+                                
+                                <button type="submit" class="button button-light">Skicka Recension</button>
+                            </form>
+
+                        </div>
 
                     </div>
 
                 </div>
-
+        
             </div>
 
         </section>
