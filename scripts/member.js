@@ -101,7 +101,7 @@ function renderBooks(bookList, element) {
 
         const bookAuthor = document.createElement("p");
         bookAuthor.classList.add("book-meta");
-        bookAuthor.textContent = `Av: ${book.author}`;
+        bookAuthor.textContent = book.author;
         listItem.appendChild(bookAuthor);
 
         addButtonsToBook(listItem); // Lägg till knapparna

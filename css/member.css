@@ -11,7 +11,9 @@
 
 .book-meta {
     font-size: clamp(1rem, 4vw, 1.1rem);
-    margin-top: 0.5rem;
+    font-weight: 600;
+    color: var(--tomato);
+    margin-top: 0;
 }
 
 .button-loan {
@@ -108,4 +110,21 @@
     right: 10px;
     font-size: 1.5em;
     cursor: pointer;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 60%), 1fr));
+    gap: 2rem;
+    margin-block: 2rem;
+}
+
+.review {
+    background: var(--snow);
+    padding: 0.5rem 1.5rem 1.5rem;
+}
+
+.review p {
+    font-size: clamp(0.9rem, 1.25vw, 1.1rem);
+    margin-bottom: 1rem;
 }

@@ -63,7 +63,8 @@ reviewForm.addEventListener("submit", async (event) => {
       author: document.getElementById("modalBookAuthor").textContent, // Add author of the book
       name: document.getElementById("reviewWritersName").value, // Add name of the writer of the review
       comment: document.getElementById("reviewComment").value, // Add review comment
-      bookId: selectedBookId
+      bookId: selectedBookId,
+      date: new Date().toLocaleDateString("sv-SE")
     };
   
     try {
@@ -92,6 +93,7 @@ const createReview = async(event) => {
         title: memberReviewForm.reviewBookTitle.value,
         author: memberReviewForm.reviewBookAuthor.value,
         comment: memberReviewForm.reviewComment.value,
+        date: memberReviewForm.reviewDate.value,
     }
 
     await fetch("http://localhost:3005/reviews", {
@@ -132,22 +134,30 @@ const createReviewElement = (review) => {
   reviewItem.classList.add("review"); // Add classname
 
   const titleHeading = document.createElement("h3");  
+  titleHeading.classList.add("book-title"); // Add classname
   titleHeading.textContent = review.title;
 
-  const authorSpan = document.createElement("p");
+  const authorSpan = document.createElement("span");
+  authorSpan.classList.add("book-meta"); // Add classname
   authorSpan.textContent = review.author;
 
   const commentParagraph = document.createElement("p"); 
   commentParagraph.textContent = review.comment;
 
   const nameSpan = document.createElement("span"); 
+  nameSpan.classList.add("book-meta"); // Add classname
   nameSpan.textContent = `Postad av: ${review.name}`;
+
+  const dateSpan = document.createElement("span"); 
+  dateSpan.classList.add("book-meta"); // Add classname
+  dateSpan.textContent = ` ${review.date}`;
 
   // Add the elements to the review item
   reviewItem.appendChild(titleHeading); 
   reviewItem.appendChild(authorSpan); 
-  reviewItem.appendChild(nameSpan);
   reviewItem.appendChild(commentParagraph);
+  reviewItem.appendChild(nameSpan);
+  reviewItem.appendChild(dateSpan);
 
   return reviewItem;
 };

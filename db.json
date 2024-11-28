@@ -109,36 +109,22 @@
   ],
   "reviews": [
     {
-      "id": "635c",
-      "title": "",
-      "author": "Av: test",
-      "name": "Hanski",
-      "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dui nisi. Nullam luctus non quam vitae rhoncus. Aliquam a ex eu tortor ultricies consectetur. Sed auctor erat sit amet mi auctor cursus. Cras nunc justo, sodales vitae placerat non, ultrices eget nisi. Nunc ullamcorper sem vel erat venenatis scelerisque et vitae sapien. Morbi pulvinar et sem sed rutrum. Morbi rhoncus, neque nec posuere laoreet, est nisi commodo purus, quis congue quam lorem in quam.",
-      "bookId": "d472"
+      "id": "9f74",
+      "title": "Testamente",
+      "author": "Nina Wähä",
+      "name": "Hannele",
+      "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere sem mi, eu venenatis leo dignissim eu. Praesent iaculis lobortis enim, vehicula vestibulum leo dignissim vitae. Nunc aliquam neque sed erat auctor iaculis. Ut eget aliquet nisl. Suspendisse rhoncus dictum eros sed aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin eu pretium lacus.",
+      "bookId": "4e1a",
+      "date": "2024-11-28"
     },
     {
-      "id": "5128",
-      "title": "Intermezzo",
-      "author": "Av: Sally Rooney",
+      "id": "52fd",
+      "title": "Nexus",
+      "author": "Yuval Noah Harari",
       "name": "Åke",
-      "comment": "onec enim massa, bibendum sed pharetra at, hendrerit vel mi. Cras quis convallis leo, non facilisis sapien. Nunc vitae nisl id sapien euismod consectetur sed a velit. Etiam sit amet urna quis risus tristique euismod. Vivamus tempus suscipit dignissim. Proin in nisl turpis. Integer tempor orci a risus fermentum dignissim.",
-      "bookId": "8b14"
-    },
-    {
-      "id": "b3a0",
-      "title": "Förbannade kärlek",
-      "author": "Av: Colleen Hoover",
-      "name": "Dolores",
-      "comment": "Nunc vitae nisl id sapien euismod consectetur sed a velit. Etiam sit amet urna quis risus tristique euismod. Vivamus tempus suscipit dignissim. Proin in nisl turpis. Integer tempor orci a risus fermentum dignissim.",
-      "bookId": "6d39"
-    },
-    {
-      "id": "4ba5",
-      "title": "Natten vi förlorade honom",
-      "author": "Av: Laura Dave",
-      "name": "Hannele Test",
-      "comment": "Integer sit amet ante et massa faucibus egestas vitae a nisi. Vivamus id ipsum sit amet erat auctor interdum vitae vel nibh. Quisque vulputate porttitor arcu eu finibus. Cras laoreet, turpis ut facilisis congue, odio arcu suscipit massa, in porta risus velit quis dolor. Phasellus faucibus varius metus, sit amet maximus mauris lacinia a. ",
-      "bookId": "4fa1"
+      "comment": "Donec posuere sem mi, eu venenatis leo dignissim eu. Praesent iaculis lobortis enim, vehicula vestibulum leo dignissim vitae. Nunc aliquam neque sed erat auctor iaculis. Ut eget aliquet nisl. Suspendisse rhoncus dictum eros sed aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin eu pretium lacus.",
+      "bookId": "79c0",
+      "date": "2024-11-28"
     }
   ]
 }
