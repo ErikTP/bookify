@@ -85,7 +85,6 @@ function handleListClick(event) {
 listEl.addEventListener("click", handleListClick);
 
 // Funktion för att rendera en lista av böcker
-
 function renderBooks(bookList, element) {
     bookList.forEach(book => {
         const listItem = document.createElement("li");
