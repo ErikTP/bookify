@@ -77,16 +77,6 @@
       "cover": "/images/testamente.jpg",
       "status": "available",
       "reviews": []
-    },
-    {
-      "id": "d472",
-      "title": "test",
-      "author": "test",
-      "synopsis": "test",
-      "genre": "Biologi",
-      "cover": "/images/nexus.jpg",
-      "status": "available",
-      "reviews": []
     }
   ],
   "users": [
@@ -123,5 +113,24 @@
       "reviews": []
     }
   ],
-  "reviews": []
+  "reviews": [
+    {
+      "id": "9f74",
+      "title": "Testamente",
+      "author": "Nina Wähä",
+      "name": "Hannele",
+      "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere sem mi, eu venenatis leo dignissim eu. Praesent iaculis lobortis enim, vehicula vestibulum leo dignissim vitae. Nunc aliquam neque sed erat auctor iaculis. Ut eget aliquet nisl. Suspendisse rhoncus dictum eros sed aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin eu pretium lacus.",
+      "bookId": "4e1a",
+      "date": "2024-11-28"
+    },
+    {
+      "id": "52fd",
+      "title": "Nexus",
+      "author": "Yuval Noah Harari",
+      "name": "Åke",
+      "comment": "Donec posuere sem mi, eu venenatis leo dignissim eu. Praesent iaculis lobortis enim, vehicula vestibulum leo dignissim vitae. Nunc aliquam neque sed erat auctor iaculis. Ut eget aliquet nisl. Suspendisse rhoncus dictum eros sed aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin eu pretium lacus.",
+      "bookId": "79c0",
+      "date": "2024-11-28"
+    }
+  ]
 }
