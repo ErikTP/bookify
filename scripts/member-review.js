@@ -82,7 +82,7 @@ reviewForm.addEventListener("submit", async (event) => {
       console.error("Error creating review:", error);
       alert("Kunde inte spara recensionen.");
     }
-  });
+});
   
 // Function to POST reviews to JSON-server
 const createReview = async(event) => {
