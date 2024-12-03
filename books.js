@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     const synopsis = document.createElement("details");
                     synopsis.textContent = book.synopsis;
                     listItem.appendChild(synopsis);
-                    booksContainer.appendChild(listItem);
 
                     const image = document.createElement("img");
                     image.src = book.cover;
@@ -44,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     listItem.appendChild(bookinfo);
                     listItem.setAttribute("data-status", "available");
 
+                    // Delete Button
                     const deleteButton = document.createElement("button");
                     deleteButton.innerHTML = trashIcon;
                     deleteButton.classList.add("delete-button");
@@ -53,10 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         const response = await fetch('http://localhost:3005/books/' + book.id, {
                             method: 'DELETE',
                         });
-                        
                     });
-                    listItem.appendChild(deleteButton);                    
 
+                    // Check Button
                     const checkButton = document.createElement("button");
                     checkButton.innerHTML = checkIcon;
                     checkButton.classList.add("check-button");
@@ -67,46 +66,66 @@ document.addEventListener("DOMContentLoaded", () => {
                             listItem.setAttribute("data-status", "available");
                         } else {
                             listItem.style.textDecoration = "line-through";
-                            listItem.setAttribute("data-status", "not available");  // Set the status to not available when checked
+                            listItem.setAttribute("data-status", "not available");
                         }
                     });
-                    
-                    listItem.appendChild(checkButton);
 
+                    // Edit Button
                     const editButton = document.createElement("button");
                     editButton.innerHTML = editIcon;
                     editButton.classList.add("edit-button");
                     listItem.appendChild(editButton);
-                    editButton.addEventListener("click", () => {
-                        const editedTitle = prompt("Edit title: ", title.textContent)
-                        const editedAuthor = prompt("Edit author: ", author.textContent);            
-                        const editedSynopsis = prompt("Edit synopsis: ", synopsis.textContent);
-            
-                        if (editedTitle !== null && editedAuthor !== null && editedSynopsis !== null) {
-                            // Preserve the buttons when editing the text
-                            const currentButtons = listItem.querySelectorAll("button");
-                            // newListItem.textContent = editedText; // Update only the text content
-            
-                            listItem.textContent = `${editedTitle} av ${editedAuthor}`;
-                            synopsisDetails.textContent = editedSynopsis;
-                            listItem.appendChild(synopsisDetails);
-                            currentButtons.forEach(button => {
-                                listItem.appendChild(button);
-                                  // Re-append the buttons after text update
-                                // newListItem.setAttribute("data-status", "edited");
-                            });
+                    editButton.addEventListener("click", async () => {
+                        const editedTitle = prompt("Edit title: ", book.title);
+                        const editedAuthor = prompt("Edit author: ", book.author);            
+                        const editedSynopsis = prompt("Edit synopsis: ", book.synopsis);
+                        const editedGenre = prompt("Edit genre: ", book.genre);
+
+                        if (editedTitle && editedAuthor && editedSynopsis) {
+                            const editedBook = {
+                                title: editedTitle,
+                                author: editedAuthor,
+                                synopsis: editedSynopsis,
+                                genre: editedGenre,
+                                cover: book.cover
+                            };
+
+                            try {
+                                const response = await fetch('http://localhost:3005/books/' + `${book.id}`, {
+                                    method: 'PUT',
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                    },
+                                    body: JSON.stringify(editedBook),
+                                });
+
+                                if (response.ok) {
+                                    const updatedBook = await response.json();
+                                    span.textContent = `${updatedBook.title} av ${updatedBook.author}, Genre: ${updatedBook.genre}`;
+                                    synopsis.textContent = updatedBook.synopsis;
+                                    image.src = updatedBook.cover; 
+                                } else {
+                                    console.log("Error updating book.");
+                                }
+                            } catch (error) {
+                                console.log(error);
+                            }
                         }
                     });
-                    listItem.appendChild(editButton);
-                    bookItem.appendChild(listItem); //slutligen skapas listitemet
 
+                    listItem.appendChild(deleteButton); 
+                    listItem.appendChild(checkButton);  
+                    listItem.appendChild(editButton);
+
+                    booksContainer.appendChild(listItem);
                 });
             })
             .catch(error => {
                 console.error('Error fetching books:', error);
             });
-            
-    };  
-        fetchBooks();
+
+    };
+
+    fetchBooks();
 
 });

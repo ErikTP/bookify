@@ -199,20 +199,19 @@ label {
     align-self: baseline;
     position:absolute;
     right: 0;
-    margin-right: 1.5rem;
-
+    margin-right: 2rem;
 }
 .edit-button {
     align-self:baseline;
     position: absolute;
     right: 35px;
-    margin-right: 1.5rem;
+    margin-right: 2rem;
 }
 .check-button {
     align-self: baseline;
     position: absolute;
     right: 70px;
-    margin-right: 1.5rem;
+    margin-right: 2rem;
 }
 .bookinfo {
     display: flex;

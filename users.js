@@ -18,27 +18,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 usersContainer.innerHTML = "";
 
                 data.users.forEach(user => {
-
                     const userListItem = document.createElement("li");
-                    userListItem.classList.add("user");
-                    userListItem.classList.add(user.userId);
-         
+                    userListItem.classList.add("user", user.userId);
+
                     const span = document.createElement("span");
-                    span.textContent = `Username: ${user.username} Password: ${user.password}, Role: ${user.role}`;
+                    span.textContent = `Username: ${user.username} Password: ${user.password}, Role: ${user.role}, User ID: ${user.id}`;
                     userListItem.appendChild(span);
 
-                    
                     const history = document.createElement("details");
-                    
-                    if (!user.history || user.history.length === 0)  {
-                        userListItem.appendChild(history);
+                    if (!user.history || user.history.length === 0) {
                         history.textContent = "List is empty";
+                    } else {
+                        history.textContent = user.history.join(", ");
                     }
-                    else {
-                        userListItem.appendChild(history);
-                        history.textContent = user.history;                       
-                    }
+                    userListItem.appendChild(history);
 
+                    // Delete Button
                     const userDeleteButton = document.createElement("button");
                     userDeleteButton.innerHTML = userTrashIcon;
                     userDeleteButton.classList.add("delete-button");
@@ -48,47 +43,55 @@ document.addEventListener("DOMContentLoaded", () => {
                         const response = await fetch('http://localhost:3005/users/' + `${user.id}`, {
                             method: 'DELETE',
                         });
-                        
                     });
-                    userListItem.appendChild(userDeleteButton);
 
+                    // Edit Button
                     const userEditButton = document.createElement("button");
                     userEditButton.innerHTML = userEditIcon;
                     userEditButton.classList.add("edit-button");
                     userListItem.appendChild(userEditButton);
-                    userEditButton.addEventListener("click", () => {
+                    userEditButton.addEventListener("click", async () => {
                         const editedUsername = prompt("Edit username: ");
                         const editedPassword = prompt("Edit password: ");
-                        const editedRole = prompt("Edit role: ");    
+                        const editedRole = prompt("Edit role: ");
+                        const editedUser = {
+                            username: editedUsername,
+                            password: editedPassword,
+                            role: editedRole
+                        };
 
-            
-                        if (editedUsername !== null && editedPassword !== null) {
-                            const currentButtons = userListItem.querySelectorAll("button");
-                            userListItem.textContent = `Username: ${editedUsername} Password: ${editedPassword}, Role: ${editedRole}`;
-                            currentButtons.forEach(button => {
-                                userListItem.appendChild(button);
-                                if (!user.history || user.history.length === 0)  {
-                                    userListItem.appendChild(history);
-                                    history.textContent = "List is empty";
+                        if (editedUsername && editedPassword) {
+                            try {
+                                const response = await fetch('http://localhost:3005/users/' + `${user.id}`, {
+                                    method: 'PUT',
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                    },
+                                    body: JSON.stringify(editedUser),
+                                });
+
+                                if (response.ok) {
+                                    const updatedUser = await response.json();
+
+                                    span.textContent = `Username: ${updatedUser.username} Password: ${updatedUser.password}, Role: ${updatedUser.role}`;
+                                    history.textContent = updatedUser.history ? updatedUser.history.join(", ") : "List is empty";
+                                } else {
+                                    console.log("Error updating user.");
                                 }
-                                else {
-                                    userListItem.appendChild(history);
-                                    history.textContent = user.history;                       
-                                }
-                            });
+                            } catch (error) {
+                                console.log(error);
+                            }
                         }
                     });
-                    
-                    userListItem.appendChild(userEditButton);
-                    userItem.appendChild(userListItem); //slutligen skapas userListItemet
 
+                    usersContainer.appendChild(userListItem);
                 });
             })
             .catch(error => {
                 console.error('Error fetching users:', error);
             });
-            
-    };  
-        fetchUsers();
 
+    };
+
+    fetchUsers();
 });
