@@ -7,15 +7,17 @@
       "genre": "Romantik",
       "cover": "/images/det-borjar-med-oss.jpg",
       "id": "42b4",
+      "status": "available",
       "reviews": []
     },
     {
+      "id": "6d39",
       "title": "Förbannade kärlek",
       "author": "Colleen Hoover",
       "synopsis": "När Tate Collins flyttar till San Fransisco för att plugga till sjuksköterska är Miles Archer den första hon träffar. Han ligger redlös i korridoren utanför hennes brors lägenhet, där Tate ska bo. Miles Archer är pilot och bär på ett mörkt förflutet. Han är en gåtfull person som aldrig ler, aldrig verkar glad och som har bestämt sig för att aldrig dejta, förälska sig eller känna någonsin igen.Det är uppenbart att det inte är kärlek vid första ögonkastet mellan Tate och Miles. Kanske kan man inte ens kalla dem vänner. Vad de däremot upptäcker att de har, är en obestridlig och laddad attraktion för varandra. De enas om det perfekta upplägget: hon vill inte ha ett förhållande och han vill inte ha kärlek. Då kvarstår sex. Deras relation är enkel, så länge Tate håller sig till de två villkor Miles satt upp: Fråga aldrig om det förflutna. Förvänta dig aldrig en framtid.Båda tror att de kan hantera en sådan relation, men det visar sig vara mer komplicerat än de tänkt sig.",
       "genre": "Cool book",
       "cover": "/images/forbannade-karlek.jpg",
-      "id": "6d39",
+      "status": "available",
       "reviews": []
     },
     {
@@ -81,12 +83,13 @@
   ],
   "users": [
     {
-      "username": "kevin",
-      "password": "leifsson",
-      "role": "hora",
+      "username": "jesper",
+      "password": "password",
+      "role": "admin",
       "id": "5d4f",
       "history": [],
-      "reviews": []
+      "reviews": [],
+      "borrowed": []
     },
     {
       "id": "7928",
@@ -94,7 +97,8 @@
       "password": "password",
       "role": "user",
       "history": [],
-      "reviews": []
+      "reviews": [],
+      "borrowed": []
     },
     {
       "id": "ce68",
@@ -102,7 +106,8 @@
       "password": "test",
       "role": "user",
       "history": [],
-      "reviews": []
+      "reviews": [],
+      "borrowed": []
     },
     {
       "id": "1603",
@@ -110,7 +115,17 @@
       "password": "passwords",
       "role": "admin",
       "history": [],
-      "reviews": []
+      "reviews": [],
+      "borrowed": []
+    },
+    {
+      "id": "f3ad",
+      "username": "Newuser",
+      "password": "passwords",
+      "role": "user",
+      "history": [],
+      "reviews": [],
+      "borrowed": []
     }
   ],
   "reviews": [

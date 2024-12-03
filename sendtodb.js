@@ -100,7 +100,8 @@ submitUser.addEventListener('click', (e) => {
         password: password,
         role: role,
         history: [],
-        reviews: []
+        reviews: [],
+        borrowed: []
     };
 
     sendUserInputFormData(userFormData);
