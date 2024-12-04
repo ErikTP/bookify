@@ -7,7 +7,7 @@
       "genre": "Romantik",
       "cover": "/images/det-borjar-med-oss.jpg",
       "id": "42b4",
-      "status": "available",
+      "status": "unavailable",
       "reviews": []
     },
     {
@@ -17,7 +17,7 @@
       "synopsis": "När Tate Collins flyttar till San Fransisco för att plugga till sjuksköterska är Miles Archer den första hon träffar. Han ligger redlös i korridoren utanför hennes brors lägenhet, där Tate ska bo. Miles Archer är pilot och bär på ett mörkt förflutet. Han är en gåtfull person som aldrig ler, aldrig verkar glad och som har bestämt sig för att aldrig dejta, förälska sig eller känna någonsin igen.Det är uppenbart att det inte är kärlek vid första ögonkastet mellan Tate och Miles. Kanske kan man inte ens kalla dem vänner. Vad de däremot upptäcker att de har, är en obestridlig och laddad attraktion för varandra. De enas om det perfekta upplägget: hon vill inte ha ett förhållande och han vill inte ha kärlek. Då kvarstår sex. Deras relation är enkel, så länge Tate håller sig till de två villkor Miles satt upp: Fråga aldrig om det förflutna. Förvänta dig aldrig en framtid.Båda tror att de kan hantera en sådan relation, men det visar sig vara mer komplicerat än de tänkt sig.",
       "genre": "Cool book",
       "cover": "/images/forbannade-karlek.jpg",
-      "status": "available",
+      "status": "unavailable",
       "reviews": []
     },
     {
@@ -27,7 +27,7 @@
       "synopsis": "Förutom att de är bröder har Peter och Ivan Koubek inte mycket gemensamt. Peter, en idealistisk jurist i trettioårsåldern, är karismatisk och framgångsrik på ytan men kämpar i själva verket med att få kontroll över sitt liv. Hans tio år yngre bror Ivan är en allvarsam schackspelare, tyngd av stämpeln som före detta underbarn. Brödernas far har precis gått bort och sorgen får avståndet mellan dem att växa. På ett schackevenemang i en småstad lär Ivan känna trettiosexåriga Margaret, som precis har gått igenom en upprivande tid. Mellan dem utvecklas en öm och tafatt förståelse, som de båda är rädda att visa för omvärlden. Samtidigt gör Peter allt för att dölja sin oförmåga att välja mellan de två kvinnorna i sitt liv – sin första stora kärlek, Sylvia, och den rebelliska studenten Naomi.",
       "genre": "Romantik",
       "cover": "/images/intermezzo.jpg",
-      "status": "available",
+      "status": "unavailable",
       "reviews": []
     },
     {
@@ -67,7 +67,7 @@
       "synopsis": "En mamma och en dotter. Två kvinnoliv sammanvävda av tid, kärlek, ensamhet och en delad utsatthet. Vad innebär det att leva, arbeta och älska som kvinna, i ett samhälle som inte kan få nog av sina rich boys? Marianne kommer från en borgerlig familj på Lidingö som fallit samman i sviterna av pappans död och skapat en ung och osäker kvinna. Det är sextiotal i Stockholm och Marianne läser till psykolog. Hon är feminist, men osäker på hur man omsätter det i praktiken. När den karismatiske Kaj, en ledargestalt inom vänstern, riktar sitt ljus mot henne följer hon med, trots att hans beteende blir allt mer våldsamt. Annika är Mariannes dotter. Trettio år senare slungas hon in i en djup kris som tvingar henne till självrannsakan. Det är tvåtusental i Stockholm, lättare att vara kvinna på vissa sätt, men svårare på andra. Caroline Ringskog Ferrada-Nolis återkomst som romanförfattare spänner över hela nittonhundratalet och gestaltar villkoren för tre generationers kvinnoliv. Det handlar om klass och moderskap, trauman som går i arv, och ensamma mammor som inte förmår ge sina barn det de behöver. Med samma bildrika, associativa stil som gjorde debuten Naturen så rosad har hon skrivit en roman som bärs fram av stor känslighet, psykologisk skärpa, skönhet och mörker.",
       "genre": "Klassiker",
       "cover": "/images/rich-boy.jpg",
-      "status": "unavailable",
+      "status": "available",
       "reviews": []
     },
     {
@@ -77,7 +77,7 @@
       "synopsis": "Är man ansvarig för sin familjs synder? Kan man egentligen göra något för att förändra historien? Kan man kanske skriva om den? Det är frågor Nina Wähä ställer i sin roman Testamente. I Testamente möter vi Annie, som när hon blir gravid motvilligt åker hem till platsen där hon växte upp. Bondgården ligger i Tornedalen, med sitt eget språk, sitt eget meänkieli. Inte svenska, inte finska, något tredje. Ingen blir särskilt glad över att se henne. Det här är nämligen en familj där en stor hemlighet ständigt hänger över dem. Två föräldrar och tolv barn, fjorton beroende på hur man räknar, som aldrig kommit överens. Testemente är en familjeroman som inte liknar något annat. Lite som om Thomas Vinterbergs film Festen släppts ner i ett Jonathan Safran Foerskt universum.",
       "genre": "Mytologi",
       "cover": "/images/testamente.jpg",
-      "status": "unavailable",
+      "status": "available",
       "reviews": []
     }
   ],

@@ -2,94 +2,25 @@
 const listEl = document.getElementById("memberBookListOutput");
 
 // Funktion som skapar två knappar (låna och reservera) och lägger dem till ett listobjekt
-function addButtonsToBook(listItem) {
-
-    const loanButton = document.createElement("button"); // Skapa en "Låna"-knapp
-    loanButton.classList.add("button-loan"); // Lägg till en klass för styling
-    loanButton.textContent = "Låna"; // Sätt texten "Låna" på knappen
-    loanButton.setAttribute('status', 'available'); // Sätt initial status som "available"
+function addButtonsToBook(listItem, bookStatus) {
+    const loanButton = document.createElement("button");
+    loanButton.classList.add("button-loan");
+    loanButton.textContent = bookStatus === "available" ? "Låna" : "Lämna tillbaka"; // Sätt text beroende på status
+    loanButton.setAttribute('status', bookStatus); // Sätt initial status från databasen
     listItem.appendChild(loanButton); // Lägg till knappen som ett barn till listobjektet
 
     const reserveButton = document.createElement("button"); // Skapa en "Reservera"-knapp
-    reserveButton.classList.add("button-reserve"); // Lägg till en klass för styling
-    reserveButton.textContent = "Reservera"; // Sätt texten "Reservera" på knappen
-    reserveButton.setAttribute('status', 'available'); // Sätt initial status som "available"
-    listItem.appendChild(reserveButton); // Lägg till knappen som ett barn till listobjektet
+    reserveButton.classList.add("button-reserve");
+    reserveButton.textContent = "Reservera"; // Standardtext för reservera-knappen
+    reserveButton.setAttribute('status', 'available');
+    listItem.appendChild(reserveButton);
 
-    const reviewButton = document.createElement("button"); // Skapa en "Reservera"-knapp
-    reviewButton.classList.add("button-review"); // Lägg till en klass för styling
-    reviewButton.textContent = "Lämna recension"; // Sätt texten "Reservera" på knappen
-    reviewButton.setAttribute('status', 'Leave review'); // Sätt initial status som "Leave Review"
-    listItem.appendChild(reviewButton); // Lägg till knappen som ett barn till listobjektet
-
-    const loanBtn = document.createElement("button"); // Skapa en "Låna"-knapp
-    loanBtn.classList.add("loan-btn"); // Lägg till en klass för styling
-    loanBtn.textContent = "Låna via databas"; // Sätt texten "Låna" på knappen
-    loanBtn.setAttribute('status', 'available'); // Sätt initial status som "available"
-    listItem.appendChild(loanBtn); // Lägg till knappen som ett barn till listobjektet
+    const reviewButton = document.createElement("button");
+    reviewButton.classList.add("button-review");
+    reviewButton.textContent = "Lämna recension";
+    reviewButton.setAttribute('status', 'Leave review');
+    listItem.appendChild(reviewButton);
 }
-
-// Funktion som hanterar klickhändelser på "Låna böcker" listan (member)
-function handleListClick(event) {
-    const target = event.target; // Hämtar det element som användaren klickade på
-
-    if (target.classList.contains("button-loan")) { 
-        const reserveButton = target.nextElementSibling; // Funkar när reserve-knappen är direkt efter loan-knappen
-
-        if (reserveButton.getAttribute('status') === 'reserved') {
-            console.log("Du kan inte låna en bok som är reserverad.");
-            alert("Du kan inte låna en bok som är reserverad.");
-            return; // Avbryt om boken är reserverad
-        } else { 
-            reserveButton.style.display = 'none';
-        }
-        const currentStatus = target.getAttribute('status');
-
-        if (currentStatus === 'loaned') {
-            target.setAttribute('status', 'available');
-            target.textContent = "Låna";
-            alert("Du har nu lämnat tillbaka boken.");
-            console.log("Boken är nu återlämnad.");
-            reserveButton.style.display = 'block';          
-        
-        } else {
-            target.setAttribute('status', 'loaned');
-            target.textContent = "Lämna tillbaka";
-            alert("Du har nu lånat boken.");
-            console.log("Boken är nu lånad.");      
-        }
-    }
-
-    if (target.classList.contains("button-reserve")) { 
-        const loanButton = target.previousElementSibling; // Loan-knappen är direkt före reserve-knappen
-
-        if (loanButton.getAttribute('status') === 'loaned') {
-            alert("Du kan inte reserva en bok som är lånad.");
-            console.log("Det går inte att reservera en bok som är lånad.");
-            return; // Avbryt om boken är lånad
-        }
-
-        const currentStatus = target.getAttribute('status');
-
-        if (currentStatus === 'reserved') {
-            target.setAttribute('status', 'available');
-            target.textContent = "Reservera";
-            alert("Du har nu ångrat din reservation av boken.");
-            console.log("Boken är inte längre reseverad.");
-            loanButton.style.display = 'block';
-
-        } else {
-            target.setAttribute('status', 'reserved');
-            target.textContent = "Ångra reservation";
-            alert("Du har nu reserverat boken.");
-            console.log("Boken är reserverad.");
-            loanButton.style.display = 'none';    
-        }
-    }
-}
-
-// Eventlyssnare
-listEl.addEventListener("click", handleListClick);
 
 // Funktion för att rendera en lista av böcker
 function renderBooks(bookList, element) {
@@ -112,7 +43,7 @@ function renderBooks(bookList, element) {
         bookAuthor.textContent = book.author;
         listItem.appendChild(bookAuthor);
 
-        addButtonsToBook(listItem); // Lägg till knapparna
+        addButtonsToBook(listItem, book.status); // Passera bokens status
         element.appendChild(listItem);
     });
 }
@@ -134,42 +65,107 @@ fetchBooks(); // Anropa funktionen för att hämta och visa böckerna
 
 window.addEventListener("DOMContentLoaded", () => renderMemberReviews());
 
-// Funktion för att låna en bok
-const bookLoan = async (bookId) => {
+// Funktion för att uppdatera bokstatus i databasen
+const updateBookStatus = async (bookId, newStatus) => {
     try {
-        const updatedBook = { // Skapa ett uppdaterad bokobjekt
-            status: "unavailable" // Bok är "available" från början i databasen
+        const updatedBook = { 
+            status: newStatus 
         };
 
-        // Skicka PATCH-förfrågan till servern för att uppdatera bokens status
         const response = await fetch(`http://localhost:3005/books/${bookId}`, {
             method: "PATCH",
             body: JSON.stringify(updatedBook),
-            headers: { "Content-Type": "application/json" }
+            headers: { "Content-Type": "application/json" },
         });
 
         if (response.ok) {
-            alert("Boken har lånas ut!");
-            console.log(`Boken med ID ${bookId} har status uppdaterad till 'unavailable'.`);
+            return true; // Om uppdateringen lyckades
+
         } else {
             console.error("Misslyckades att uppdatera bokens status.");
+            return false;
         }
+
     } catch (error) {
         console.error("Ett fel inträffade vid uppdatering av bokens status:", error);
+        return false;
     }
 };
 
-// Hanterar Låna-knappen som är kopplad till databasen
-function handleBookLoanClick(event) {
-    const target = event.target; // Hämtar det element som användaren klickade på
+async function handleListClick(event) {
+    const target = event.target;
 
-    if (target.classList.contains("loan-btn")) { 
-        console.log("TESTING"); 
-        const listItem = target.closest(".book-item"); // Hitta närmaste bok-listobjekt
-        const bookId = listItem.getAttribute("data-book-id"); // Hämta bokens ID
-        bookLoan(bookId); // Anropa funktionen och skicka bokens ID
+    if (target.classList.contains("button-loan")) {
+        const listItem = target.closest(".book-item");
+        const bookId = listItem.getAttribute("data-book-id");
+        const currentStatus = target.getAttribute("status");
+        const user = getLoggedInUser();
+
+        if (!user) {
+            alert("Du måste vara inloggad för att låna böcker.");
+            return;
+        }
+
+        if (currentStatus === "available") {
+            const success = await updateBookStatus(bookId, "unavailable");
+            if (success) {
+                const userUpdateSuccess = await updateUserBorrowedBooks(user.id, bookId);
+                if (userUpdateSuccess) {
+                    target.setAttribute("status", "unavailable");
+                    target.textContent = "Lämna tillbaka";
+                    alert("Du har nu lånat boken.");
+                    window.location.replace("/member.html#memberBookListOutput");
+                }
+            }
+        } else if (currentStatus === "unavailable") {
+            const success = await updateBookStatus(bookId, "available");
+            if (success) {
+                target.setAttribute("status", "available");
+                target.textContent = "Låna";
+                alert("Du har nu lämnat tillbaka boken.");
+                window.location.replace("/member.html#memberBookListOutput");
+            }
+        }
     }
-};
+}
 
-// Eventlyssnare kopplad till "Låna"-knappen (med koppling till databasen)
-listEl.addEventListener("click", handleBookLoanClick);
+// Eventlyssnare kopplad till klick på knappar i boklistan
+listEl.addEventListener("click", handleListClick);
+
+// Funktion som hämtar inloggad användare från LocalStorage
+function getLoggedInUser() {
+    const user = localStorage.getItem("user"); // Nyckeln ska vara en sträng
+    console.log(user); // Kontrollera vad som hämtas från LocalStorage
+    return user ? JSON.parse(user) : null; // Om user är null, returnera null; annars parsa till JSON
+}
+
+// Funktion som uppdaterar användarens borrowed-lista i databasen
+async function updateUserBorrowedBooks(userId, bookId) {
+    try {
+        // Hämta nuvarande användaruppgifter från databasen
+        const response = await fetch(`http://localhost:3005/users/${userId}`);
+        const userData = await response.json();
+
+        // Uppdatera borrowed-listan
+        const borrowedBooks = userData.borrowed || [];
+        borrowedBooks.push(bookId);
+
+        const updatedUser = { borrowed: borrowedBooks };
+
+        const updateResponse = await fetch(`http://localhost:3005/users/${userId}`, {
+            method: "PATCH",
+            body: JSON.stringify(updatedUser),
+            headers: { "Content-Type": "application/json" },
+        });
+
+        if (!updateResponse.ok) {
+            throw new Error("Failed to update user's borrowed books");
+        }
+
+        return true;
+
+    } catch (error) {
+        console.error("Error updating user's borrowed books:", error);
+        return false;
+    }
+}
