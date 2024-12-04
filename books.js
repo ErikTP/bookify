@@ -30,8 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     const status = document.createElement("p");
                     if (book.status == "available") {
                     status.textContent = "Tillgänglig";
+                    listItem.setAttribute("data-status", "available");
                     } else if (book.status == "unavailable") {
                         status.textContent = "Ej tillgänglig";
+                        listItem.setAttribute("data-status", "not available");
                     }
                     
 
@@ -68,19 +70,21 @@ document.addEventListener("DOMContentLoaded", () => {
                             method: 'DELETE',
                         });
                     });
+                    
 
                     // Check Button
                     const checkButton = document.createElement("button");
                     checkButton.innerHTML = checkIcon;
                     checkButton.classList.add("check-button");
                     listItem.appendChild(checkButton);
+
                     checkButton.addEventListener("click", () => {
-                        if (listItem.style.textDecoration === "line-through") {
-                            listItem.style.textDecoration = "none";
+                        if (listItem.getAttribute("data-status") === "not available") {
                             listItem.setAttribute("data-status", "available");
+                            status.textContent = "Tillgänglig";
                         } else {
-                            listItem.style.textDecoration = "line-through";
                             listItem.setAttribute("data-status", "not available");
+                            status.textContent = "Ej tillgänglig";
                         }
                     });
 
@@ -130,6 +134,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     listItem.appendChild(deleteButton); 
                     listItem.appendChild(checkButton);  
                     listItem.appendChild(editButton);
+
+                    
+                    if (book.status == "available") {
+                    listItem.setAttribute("data-status", "available");
+                    } else if (book.status == "unavailable") {
+                        listItem.setAttribute("data-status", "not available");
+                    }
 
                     booksContainer.appendChild(listItem);
                 });
