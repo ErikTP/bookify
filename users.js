@@ -26,12 +26,32 @@ document.addEventListener("DOMContentLoaded", () => {
                     userListItem.appendChild(span);
 
                     const history = document.createElement("details");
+                    const historyHeader = document.createElement("summary");
+                    historyHeader.textContent = "Lånehistorik";
+                    
+                    
+
                     if (!user.history || user.history.length === 0) {
-                        history.textContent = "List is empty";
+                        history.textContent = "Det finns ingen lånehistorik här.";
                     } else {
                         history.textContent = user.history.join(", ");
                     }
 
+                    const reviews = document.createElement("details");
+                    const reviewsHeader = document.createElement("summary");
+                    reviewsHeader.textContent = "Användarens recensioner";
+
+                    if (!user.reviews || user.reviews.length == 0) {
+                        reviews.textContent = "Användaren har inte skrivit några recensioner.";
+                    } else {
+                        reviews.textContent = user.reviews.join(", ");
+                    }
+
+                    history.appendChild(historyHeader);
+                    userListItem.appendChild(history);
+
+                    reviews.appendChild(reviewsHeader);
+                    userListItem.appendChild(reviews);
                     // Delete Button
                     const userDeleteButton = document.createElement("button");
                     userDeleteButton.innerHTML = userTrashIcon;
@@ -72,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 if (response.ok) {
                                     const updatedUser = await response.json();
                                     span.textContent = `Username: ${updatedUser.username} Password: ${updatedUser.password}, Role: ${updatedUser.role}`;
-                                    history.textContent = updatedUser.history ? updatedUser.history.join(", ") : "List is empty";
+                                    history.textContent = updatedUser.history ? updatedUser.history.join(", ") : "Listan är tom";
                                 } else {
                                     console.log("Error updating user.");
                                 }

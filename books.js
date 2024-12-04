@@ -27,9 +27,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     span.textContent = `${book.title} av ${book.author}, Genre: ${book.genre}`;
                     listItem.appendChild(span);
 
+                    const status = document.createElement("p");
+                    if (book.status == "available") {
+                    status.textContent = "Tillgänglig";
+                    } else if (book.status == "unavailable") {
+                        status.textContent = "Ej tillgänglig";
+                    }
+                    
+
+                    listItem.appendChild(status);
+
                     const synopsis = document.createElement("details");
                     synopsis.textContent = book.synopsis;
                     listItem.appendChild(synopsis);
+
+                    const synopsisHeader = document.createElement("summary");
+                    synopsisHeader.textContent = "Om boken";
+                    synopsis.appendChild(synopsisHeader);
 
                     const image = document.createElement("img");
                     image.src = book.cover;
@@ -92,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                             try {
                                 const response = await fetch('http://localhost:3005/books/' + `${book.id}`, {
-                                    method: 'PUT',
+                                    method: 'PATCH',
                                     headers: {
                                         "Content-Type": "application/json",
                                     },
