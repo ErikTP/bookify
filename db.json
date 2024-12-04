@@ -83,11 +83,15 @@
   ],
   "users": [
     {
-      "username": "jesper",
-      "password": "password",
-      "role": "admin",
+      "username": "jeppe",
+      "password": "jeppe",
+      "role": "jeppe",
       "id": "5d4f",
-      "history": [],
+      "history": [
+        "Steven Kang's Djungelboken",
+        "Snabba cash",
+        "Ornitologi för nybörjare"
+      ],
       "reviews": [],
       "borrowed": []
     },

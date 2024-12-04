@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     } else {
                         history.textContent = user.history.join(", ");
                     }
-                    userListItem.appendChild(history);
 
                     // Delete Button
                     const userDeleteButton = document.createElement("button");
@@ -56,16 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         const editedRole = prompt("Edit role: ", user.role);
 
                         const updatedFields = {}; 
-
-                        if (editedUsername && editedUsername !== user.username) {
                             updatedFields.username = editedUsername;
-                        }
-                        if (editedPassword && editedPassword !== user.password) {
                             updatedFields.password = editedPassword;
-                        }
-                        if (editedRole && editedRole !== user.role) {
                             updatedFields.role = editedRole;
-                        }
 
                         if (Object.keys(updatedFields).length > 0) {
                             try {

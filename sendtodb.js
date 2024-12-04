@@ -36,15 +36,11 @@ submitBook.addEventListener('click', (e) => {
     const title = bookTitleInput.value.trim();
     const author = bookAuthorInput.value.trim();
     const synopsis = bookSynopsis.value.trim();
-    // const cover = bookCoverInput.value.trim();
     const genre = bookGenreInput.value.trim();
     const reviews = [];
-    // Get the selected file from the input
     const fileInput = bookCoverInput;
-    const fileName = fileInput.files[0].name;  // Get the name of the selected file
-
-    // Assuming all book covers are stored in a folder, e.g., "/images/"
-    const relativePath = `/images/${fileName}`;  // Construct the relative URL/path
+    const fileName = fileInput.files[0].name;
+    const relativePath = `/images/${fileName}`;
 
     const formData = {
         title: title,
