@@ -130,6 +130,22 @@
       "history": [],
       "reviews": [],
       "borrowed": []
+    },
+    {
+      "id": "93e3",
+      "username": "hej",
+      "password": "hej1",
+      "role": "user",
+      "history": [],
+      "reviews": []
+    },
+    {
+      "id": "6703",
+      "username": "hej1",
+      "password": "hej1",
+      "role": "user",
+      "history": [],
+      "reviews": []
     }
   ],
   "reviews": [
