@@ -3,6 +3,7 @@ const listEl = document.getElementById("memberBookListOutput");
 
 // Funktion som skapar två knappar (låna och reservera) och lägger dem till ett listobjekt
 function addButtonsToBook(listItem) {
+
     const loanButton = document.createElement("button"); // Skapa en "Låna"-knapp
     loanButton.classList.add("button-loan"); // Lägg till en klass för styling
     loanButton.textContent = "Låna"; // Sätt texten "Låna" på knappen
@@ -20,6 +21,12 @@ function addButtonsToBook(listItem) {
     reviewButton.textContent = "Lämna recension"; // Sätt texten "Reservera" på knappen
     reviewButton.setAttribute('status', 'Leave review'); // Sätt initial status som "Leave Review"
     listItem.appendChild(reviewButton); // Lägg till knappen som ett barn till listobjektet
+
+    const loanBtn = document.createElement("button"); // Skapa en "Låna"-knapp
+    loanBtn.classList.add("loan-btn"); // Lägg till en klass för styling
+    loanBtn.textContent = "Låna via databas"; // Sätt texten "Låna" på knappen
+    loanBtn.setAttribute('status', 'available'); // Sätt initial status som "available"
+    listItem.appendChild(loanBtn); // Lägg till knappen som ett barn till listobjektet
 }
 
 // Funktion som hanterar klickhändelser på "Låna böcker" listan (member)
@@ -123,7 +130,46 @@ async function fetchBooks() {
     }
 }
 
-// Anropa funktionen för att hämta och visa böckerna
-fetchBooks();
+fetchBooks(); // Anropa funktionen för att hämta och visa böckerna
 
 window.addEventListener("DOMContentLoaded", () => renderMemberReviews());
+
+// Funktion för att låna en bok
+const bookLoan = async (bookId) => {
+    try {
+        const updatedBook = { // Skapa ett uppdaterad bokobjekt
+            status: "unavailable" // Bok är "available" från början i databasen
+        };
+
+        // Skicka PATCH-förfrågan till servern för att uppdatera bokens status
+        const response = await fetch(`http://localhost:3005/books/${bookId}`, {
+            method: "PATCH",
+            body: JSON.stringify(updatedBook),
+            headers: { "Content-Type": "application/json" }
+        });
+
+        if (response.ok) {
+            alert("Boken har lånas ut!");
+            console.log(`Boken med ID ${bookId} har status uppdaterad till 'unavailable'.`);
+        } else {
+            console.error("Misslyckades att uppdatera bokens status.");
+        }
+    } catch (error) {
+        console.error("Ett fel inträffade vid uppdatering av bokens status:", error);
+    }
+};
+
+// Hanterar Låna-knappen som är kopplad till databasen
+function handleBookLoanClick(event) {
+    const target = event.target; // Hämtar det element som användaren klickade på
+
+    if (target.classList.contains("loan-btn")) { 
+        console.log("TESTING"); 
+        const listItem = target.closest(".book-item"); // Hitta närmaste bok-listobjekt
+        const bookId = listItem.getAttribute("data-book-id"); // Hämta bokens ID
+        bookLoan(bookId); // Anropa funktionen och skicka bokens ID
+    }
+};
+
+// Eventlyssnare kopplad till "Låna"-knappen (med koppling till databasen)
+listEl.addEventListener("click", handleBookLoanClick);
