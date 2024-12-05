@@ -11,7 +11,7 @@ function addButtonsToBook(listItem, bookStatus) {
 
     const reserveButton = document.createElement("button"); // Skapa en "Reservera"-knapp
     reserveButton.classList.add("button-reserve");
-    reserveButton.textContent = "Reservera"; // Standardtext för reservera-knappen
+    reserveButton.textContent = "Reservera"; // Text för reservera-knappen
     reserveButton.setAttribute('status', 'available');
     listItem.appendChild(reserveButton);
 
@@ -30,7 +30,7 @@ function renderBooks(bookList, element) {
         listItem.setAttribute("data-book-id", book.id); // Lägg till bokens ID som data-attribut
 
         const bookCover = document.createElement("img");
-        bookCover.src = book.cover || "default-cover.jpg"; // Standardbild om omslag saknas
+        bookCover.src = book.cover || "default-cover.jpg"; // Standardbild om omslag saknas (OBS - lägg till)
         listItem.appendChild(bookCover);
 
         const bookName = document.createElement("h3");
@@ -63,7 +63,20 @@ async function fetchBooks() {
 
 fetchBooks(); // Anropa funktionen för att hämta och visa böckerna
 
-window.addEventListener("DOMContentLoaded", () => renderMemberReviews());
+// Funktion för att hämta en bok med hjälp av bookId
+async function fetchBookById(bookId) {
+    try {
+        const response = await fetch(`http://localhost:3005/books/${bookId}`);
+        if (!response.ok) {
+            throw new Error("Failed to fetch book");
+        }
+        return await response.json();
+    } catch (error) {
+        console.error("Error fetching book by ID:", error);
+        return null;
+    }
+}
+
 
 // Funktion för att uppdatera bokstatus i databasen
 const updateBookStatus = async (bookId, newStatus) => {
@@ -92,6 +105,52 @@ const updateBookStatus = async (bookId, newStatus) => {
     }
 };
 
+// Funktion för att hämta inloggad användare
+function getLoggedInUser() {
+    const storedUser = JSON.parse(localStorage.getItem("storedUser"));
+    return storedUser; // Returnera hela användarobjektet
+}
+
+// Funktion som uppdaterar användarens lånade böcker i db.json
+async function updateUserBorrowedBooks(userId, bookId) {
+    try {
+        // Hämta bokens information baserat på bookId
+        const book = await fetchBookById(bookId);
+        if (!book) {
+            console.error("Boken kunde inte hittas");
+            return false;
+        }
+
+        // Hämta användardata
+        const response = await fetch(`http://localhost:3005/users/${userId}`);
+        const userData = await response.json();
+
+        // Uppdatera borrowed-listan med bokens titel
+        const borrowedBooks = userData.borrowed || [];
+        borrowedBooks.push(book.title);
+
+        const updatedUser = { ...userData, borrowed: borrowedBooks };
+
+        // Skicka PATCH-förfrågan för att uppdatera användarens data
+        const updateResponse = await fetch(`http://localhost:3005/users/${userId}`, {
+            method: "PATCH",
+            body: JSON.stringify(updatedUser),
+            headers: { "Content-Type": "application/json" },
+        });
+
+        if (!updateResponse.ok) {
+            throw new Error("Failed to update user's borrowed books");
+        }
+
+        return true;
+
+    } catch (error) {
+        console.error("Error updating user's borrowed books:", error);
+        return false;
+    }
+}
+
+// Funktion som hanterar klick för knappar kopplade till böckerna som kan lånas/reseveras
 async function handleListClick(event) {
     const target = event.target;
 
@@ -110,7 +169,7 @@ async function handleListClick(event) {
             const success = await updateBookStatus(bookId, "unavailable");
             if (success) {
                 const userUpdateSuccess = await updateUserBorrowedBooks(user.id, bookId);
-                if (userUpdateSuccess) {
+                if (success && userUpdateSuccess) {
                     target.setAttribute("status", "unavailable");
                     target.textContent = "Lämna tillbaka";
                     alert("Du har nu lånat boken.");
@@ -132,40 +191,58 @@ async function handleListClick(event) {
 // Eventlyssnare kopplad till klick på knappar i boklistan
 listEl.addEventListener("click", handleListClick);
 
-// Funktion som hämtar inloggad användare från LocalStorage
-function getLoggedInUser() {
-    const user = localStorage.getItem("user"); // Nyckeln ska vara en sträng
-    console.log(user); // Kontrollera vad som hämtas från LocalStorage
-    return user ? JSON.parse(user) : null; // Om user är null, returnera null; annars parsa till JSON
-}
-
-// Funktion som uppdaterar användarens borrowed-lista i databasen
-async function updateUserBorrowedBooks(userId, bookId) {
+// Funktion som hämtar den inloggade användarens data från db.json
+async function fetchBorrowedBooks() {
     try {
-        // Hämta nuvarande användaruppgifter från databasen
-        const response = await fetch(`http://localhost:3005/users/${userId}`);
-        const userData = await response.json();
-
-        // Uppdatera borrowed-listan
-        const borrowedBooks = userData.borrowed || [];
-        borrowedBooks.push(bookId);
-
-        const updatedUser = { borrowed: borrowedBooks };
-
-        const updateResponse = await fetch(`http://localhost:3005/users/${userId}`, {
-            method: "PATCH",
-            body: JSON.stringify(updatedUser),
-            headers: { "Content-Type": "application/json" },
-        });
-
-        if (!updateResponse.ok) {
-            throw new Error("Failed to update user's borrowed books");
+        const user = getLoggedInUser(); // Hämta den inloggade användaren från localStorage
+        if (!user) {
+            console.error("Ingen användare är inloggad.");
+            return [];
         }
 
-        return true;
+        // Hämta användarens data från databasen
+        const response = await fetch(`http://localhost:3005/users/${user.id}`);
+        if (!response.ok) {
+            throw new Error("Kunde inte hämta användarens data.");
+        }
 
+        const userData = await response.json();
+        return userData.borrowed || []; // Returnera de lånade böckerna
     } catch (error) {
-        console.error("Error updating user's borrowed books:", error);
-        return false;
+        console.error("Ett fel inträffade när lånade böcker hämtades:", error);
+        return [];
     }
 }
+
+// Skapar listan med lånade böcker
+function renderBorrowedBooks(borrowedBooks) {
+    const borrowedBooksList = document.getElementById("borrowedBooksList");
+    borrowedBooksList.innerHTML = ""; // Töm tidigare innehåll
+
+    if (borrowedBooks.length === 0) {
+        borrowedBooksList.innerHTML = "<li>Du har inte lånat några böcker.</li>";
+        return;
+    }
+
+    borrowedBooks.forEach(bookTitle => {
+        const listItem = document.createElement("li");
+        listItem.textContent = bookTitle;
+        borrowedBooksList.appendChild(listItem);
+    });
+}
+
+// Funktion som hämtar och visar de lånade böckerna när sidan laddas
+async function displayBorrowedBooks() {
+    const borrowedBooks = await fetchBorrowedBooks(); // Hämta användarens lånade böcker
+    renderBorrowedBooks(borrowedBooks); // Rendera böckerna i DOM
+}
+
+// Kör funktionen när sidan laddas
+window.addEventListener("DOMContentLoaded", () => {
+    displayBorrowedBooks();
+});
+
+
+
+// ????
+window.addEventListener("DOMContentLoaded", () => renderMemberReviews());
