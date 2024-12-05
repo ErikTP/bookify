@@ -1,7 +1,10 @@
+/* HANNELES STYLING FOR THE MEMBER PART */
+
 /* Variables */
 :root {
 	--snow: #fff;
 	--coffee: #000;
+    --light-grey: #f8f4f4;
     --green: #247e77;
     --dark-green: #365d58;
     --beige: #fdebda;
@@ -9,20 +12,15 @@
     --tomato: #cb3938;
     --orange: #f79043;
     --purple: #3e2d4a;  
+    --border-radius: 1rem;  
 } 
 
 body {
+    background: var(--light-grey);
     color: var(--coffee);
-    font-family: "Lato", sans-serif;
-    font-size: clamp(1rem, 1.25vw, 1.25rem);
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
-}
-
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--green);
-    font-family: "Playfair Display", serif;
-    font-weight: 900;
+    font-style: normal;
 }
 
 h1 {
@@ -39,12 +37,12 @@ h3 {
     font-size: clamp(1.8rem, 4vw, 2.4rem);
 }
 
-p {
-    margin-top: 1rem;
-}
-
 ul {
     list-style-type: none; 
+}
+
+p {
+    margin-top: 1rem;
 }
 
 /* Links */
@@ -60,13 +58,13 @@ a:hover {
 /* Buttons */
 .button {
     background: var(--tomato);
+    border-radius: 1rem;
     border: 0;
-    border-radius: 0.04rem;
     color: var(--snow);
-    font-size: clamp(1.2rem, 1.25vw, 1.3rem);
+    cursor: pointer;
+    font-size: clamp(1.15rem, 1.25vw, 1.25rem);
     font-weight: 600;
-    margin-top: 2rem;
-    padding: 0.6rem 1.6rem;
+    padding: 0.4rem 1.4rem;
     transition: 0.3s;
 }
 
@@ -83,14 +81,21 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Site content wrapper */
-.inner-wrapper {
-    margin-inline: auto;
-    width: min(100% - 3rem, 80rem);
+.notification-bar {
+    background: var(--tomato);
+    color: var(--snow);
+    font-weight: 600;
+    padding-block: 1.5rem;
+    text-align: center;
+}
+
+header {
+    background: var(--snow);
 }
 
 /* Site header */
 .site-header {
+    align-items: center;
     display: flex;
     justify-content: space-between;
     padding-block: 2rem;
@@ -98,13 +103,13 @@ button:hover {
 
 .site-logo {
     color: var(--tomato);
-    letter-spacing: 0.06rem;
     font-size: clamp(1.3rem, 4vw, 1.8rem);
     font-weight: 900;
+    letter-spacing: 0.06rem;
 }
 
 .site-logo a,
-site-logo a:visited{
+.site-logo a:visited {
     color: var(--tomato);
 }
 
@@ -117,14 +122,30 @@ nav ul {
 
 nav a {
     color: var(--green);
-    font-size: clamp(1rem, 1.25vw, 1.4rem);
+    font-size: clamp(1rem, 1.25vw, 1.2rem);
     font-weight: 600;
     text-decoration: none;
-    vertical-align: middle;
+    text-transform: uppercase;
 }
 
 nav a:visited {
     color: var(--green);  
+}
+
+/* Site content wrapper */
+.inner-wrapper {
+    margin-inline: auto;
+    width: min(100% - 3rem, 80rem);
+}
+
+/* Section */
+section {
+    padding-block: min(5vw, 2rem);
+}
+
+/* Background variations */
+.bg-light {
+    background: var(--light-grey);
 }
 
 /* Grid layout */
@@ -141,8 +162,8 @@ nav a:visited {
 
 /* Smart tip from Kevin Powell
 Responsive Grid Layout, no Media Queries required */
-.auto-grid {
-    grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr));
+.grid-auto {
+    grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
 }
 
 .grid-2-col {
@@ -178,88 +199,153 @@ input, select, textarea {
     border-radius: 5px;
 }
 
-/* Hero section */
-.hero {
-    justify-content: center;
+.books-loaned {
+    background: var(--snow);
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+    padding: 1.2rem;  
 }
 
-.hero-left {
-    align-self: center;
-}
-
-.hero-left p {
-    font-size: clamp(1.1rem, 1.3vw, 2rem);
-    max-width: 45ch;
-}
-
-/* Section */
-section {
-    padding-block: min(5vw, 4rem);
-}
-
-/* Background variations */
-.bg-light {
-    background: var(--beige);
-}
-
-
-/* Books */
-.book-gallery {
+.book-list {
     margin-top: 2rem;
 }
 
-.book-gallery > * {
-    justify-self: center;
+.book-title {
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+    margin-top: 0.8rem;
 }
 
-.myBook-container{
-    list-style-type: none; 
-    padding: 0; 
-    margin: 0; 
+.book-meta {
+    font-size: clamp(1rem, 4vw, 1.1rem);
+    font-weight: 600;
+    color: var(--tomato);
+    margin-top: 0;
 }
 
-#myBook, #reviewResult{
-    border: 0.18rem solid var(--green);
-    height: 75%;
-    overflow: auto;
-    scrollbar-color: var(--green) var(--dark-green);
-    scrollbar-width: thin; 
+.book-item {
+    background: var(--snow);
+    border-radius: var(--border-radius);
+    padding: 1.2rem;  
 }
 
-#myBook li{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 15px; 
+.button-loan {
+    font-size: clamp(0.9rem, 4vw, 1rem);
+    background: var(--green);
+    border: 0;
+    border-radius: 1rem;
+    color: var(--snow);
+    cursor: pointer;
+    display: block;
+    font-weight: 600;
+    margin-block: 0.8rem;
+    padding: 0.5rem 0.9rem;
+    transition: 0.3s;
+}
+
+.button-reserve {
+    font-size: clamp(0.9rem, 4vw, 1rem);
+    background: var(--orange);
+    border: 0;
+    border-radius: 1rem;
+    color: var(--snow);
+    cursor: pointer;
+    display: block;
+    font-weight: 600;
+    margin-block: 0.8rem;
+    padding: 0.5rem 0.9rem;
+    transition: 0.3s;
+}
+
+.button-review {
+    font-size: clamp(0.9rem, 4vw, 1rem);
+    background: var(--purple);
+    border: 0;
+    border-radius: 1rem;
+    color: var(--snow);
+    display: block;
+    font-weight: 600;
+    margin-top: 0.8rem;
+    padding: 0.5rem 0.9rem;
+    transition: 0.3s;
+}
+
+.button-delete {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    background: var(--tomato);
+    border: 0;
+    border-radius: 0.04rem;
+    color: var(--snow);
+    cursor: pointer;
+    display: block;
+    font-weight: 600;
+    margin-block: 0.8rem;
+    padding: 0.3rem 0.5rem;
+    transition: 0.3s;
+}
+
+[status="reserved"] {
+    background: var(--tomato);
+}
+
+[status="unavailable"] {
+    background: var(--tomato);
+}
+
+/* The Modal (background) */
+.review-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+  
+.review-modal-content {
+    background-color: var(--beige);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.review-modal form {
+    margin-top: 1.5rem;
+}
+  
+.review-modal-close-button {
+    cursor: pointer;
+    font-size: 1.5em;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 60%), 1fr));
+    gap: 2rem;
+    margin-block: 2rem;
+}
+
+.review {
+    background: var(--snow);
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1.5rem 1.5rem;
+}
+
+.review p {
+    font-size: clamp(0.9rem, 1.25vw, 1.1rem);
     margin-bottom: 1rem;
-    background-color: var(--beige);
-    border-radius: 5px; 
-    cursor: pointer; 
-    transition: background-color 0.3s; 
-    border: 1.6px outset var(--green);
-    font-size: 1.1rem;
-    text-transform: capitalize;
-    font-weight: bold;
 }
 
-#myBook li:hover, #reviewResult li:hover  {
-    background-color: var(--orange); 
-}
-
-#reviewResult li{
-    padding: 10px 15px; 
-    margin: 1rem;
-    background-color: var(--beige);
-    border-radius: 5px; 
-    cursor: pointer; 
-    transition: background-color 0.3s; 
-    border: 1.6px outset var(--green);
-    font-size: 1.1rem;
-    text-transform: capitalize;
-} 
-
-/* Site footer */
 footer {
     background: var(--dark-green);
+    color: var(--snow);
     padding-top: min(5vw, 3rem);
 }
 
@@ -289,167 +375,8 @@ footer ul {
 
 .footer-bottom {
     background: var(--snow);
+    color: var(--coffee);
     font-size: small;
     padding-block: 0.5rem 1.3rem;
     text-align: center;
-}
-
-.input-result-list {
-    background-color: var(--snow);
-    border-radius: 5px;
-    margin: auto;
-    min-height: 200px;
-    padding: 1rem;
-    width: 100%; 
-}
-
-.input-result-list li {
-    padding-bottom: 1rem;
-}
-
-.input-result-list li button {
-    margin-left: 1rem;
-}
-
-/* HANNELES STYLING FOR THE MEMBER PART */
-
-.memberBookListOutput {
-    margin-top: 2rem;
-}
-
-.book-title {
-    font-size: clamp(1.1rem, 4vw, 1.3rem);
-    margin-top: 0.8rem;
-}
-
-.book-meta {
-    font-size: clamp(1rem, 4vw, 1.1rem);
-    font-weight: 600;
-    color: var(--tomato);
-    margin-top: 0;
-}
-
-.button-loan {
-    font-size: clamp(0.9rem, 4vw, 1rem);
-    background: var(--green);
-    border: 0;
-    border-radius: 0.04rem;
-    color: var(--snow);
-    display: block;
-    font-weight: 600;
-    margin-block: 0.8rem;
-    padding: 0.3rem 0.5rem;
-    transition: 0.3s;
-}
-
-.button-reserve {
-    font-size: clamp(0.9rem, 4vw, 1rem);
-    background: var(--orange);
-    border: 0;
-    border-radius: 0.04rem;
-    color: var(--snow);
-    display: block;
-    font-weight: 600;
-    margin-block: 0.8rem;
-    padding: 0.3rem 0.5rem;
-    transition: 0.3s;
-}
-
-.button-review {
-    font-size: clamp(0.9rem, 4vw, 1rem);
-    background: var(--purple);
-    border: 0;
-    border-radius: 0.04rem;
-    color: var(--snow);
-    display: block;
-    font-weight: 600;
-    margin-top: 0.8rem;
-    padding: 0.3rem 0.5rem;
-    transition: 0.3s;
-}
-
-.button-delete {
-    font-size: clamp(0.9rem, 4vw, 1.1rem);
-    background: var(--tomato);
-    border: 0;
-    border-radius: 0.04rem;
-    color: var(--snow);
-    display: block;
-    font-weight: 600;
-    margin-block: 0.8rem;
-    padding: 0.3rem 0.5rem;
-    transition: 0.3s;
-}
-
-[status="reserved"] {
-    background: var(--tomato);
-}
-
-[status="unavailable"] {
-    background: var(--tomato);
-}
-
-/* Modal by Hannele for review form */
-
-/* The Modal (background) */
-.review-modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-  
-.review-modal-content {
-    background-color: var(--beige);
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    position: relative;
-}
-
-.review-modal form {
-    margin-top: 1.5rem;
-}
-  
-.review-modal-close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.5em;
-    cursor: pointer;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 60%), 1fr));
-    gap: 2rem;
-    margin-block: 2rem;
-}
-
-.review {
-    background: var(--snow);
-    padding: 0.5rem 1.5rem 1.5rem;
-}
-
-.review p {
-    font-size: clamp(0.9rem, 1.25vw, 1.1rem);
-    margin-bottom: 1rem;
-}
-
-.book-item {
-    background: var(--snow);
-    padding: 1.2rem;  
-}
-
-.book-content {
-}
-
-.grid-member-books {
-    grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
 }
