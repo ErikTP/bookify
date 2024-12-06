@@ -125,9 +125,14 @@ async function updateUserBorrowedBooks(userId, bookId) {
         const response = await fetch(`http://localhost:3005/users/${userId}`);
         const userData = await response.json();
 
-        // Uppdatera borrowed-listan med bokens titel
+        // Uppdatera borrowed-listan med ett objekt som innehåller titel och författare
         const borrowedBooks = userData.borrowed || [];
-        borrowedBooks.push(book.title);
+
+        borrowedBooks.push({ 
+            title: book.title, 
+            author: book.author, 
+            borrowedAt: new Date().toLocaleDateString("sv-SE") // Lägg till tidsstämpel
+        });
 
         const updatedUser = { ...userData, borrowed: borrowedBooks };
 
@@ -148,7 +153,7 @@ async function updateUserBorrowedBooks(userId, bookId) {
         console.error("Error updating user's borrowed books:", error);
         return false;
     }
-}
+};
 
 // Funktion som hanterar klick för knappar kopplade till böckerna som kan lånas/reseveras
 async function handleListClick(event) {
@@ -207,12 +212,12 @@ async function fetchBorrowedBooks() {
         }
 
         const userData = await response.json();
-        return userData.borrowed || []; // Returnera de lånade böckerna
+        return userData.borrowed || []; // Returnera de lånade böckerna som en lista av objekt
     } catch (error) {
         console.error("Ett fel inträffade när lånade böcker hämtades:", error);
         return [];
     }
-}
+};
 
 // Skapar listan med lånade böcker
 function renderBorrowedBooks(borrowedBooks) {
@@ -220,16 +225,34 @@ function renderBorrowedBooks(borrowedBooks) {
     borrowedBooksList.innerHTML = ""; // Töm tidigare innehåll
 
     if (borrowedBooks.length === 0) {
-        borrowedBooksList.innerHTML = "<li>Du har inte lånat några böcker.</li>";
+        const noBooks = document.createElement("li");
+        noBooks.textContent = `Du har inte lånat några böcker.`;
+        borrowedBooksList.appendChild(noBooks);
         return;
     }
 
-    borrowedBooks.forEach(bookTitle => {
-        const listItem = document.createElement("li");
-        listItem.textContent = bookTitle;
-        borrowedBooksList.appendChild(listItem);
+    borrowedBooks.forEach(book => {
+            const listItem = document.createElement("li");
+        
+            const bookName = document.createElement("h3");
+            bookName.classList.add("book-title");
+            bookName.textContent = book.title;
+            listItem.appendChild(bookName);
+        
+            const bookAuthor = document.createElement("p");
+            bookAuthor.classList.add("book-meta");
+            bookAuthor.textContent = `Författare: ${book.author}`;
+            listItem.appendChild(bookAuthor);
+        
+            const borrowedDate = document.createElement("p");
+            borrowedDate.classList.add("book-meta");
+            borrowedDate.textContent = `Lånad: ${book.borrowedAt}`;
+            listItem.appendChild(borrowedDate);
+        
+            // Lägg till i början av listan
+            borrowedBooksList.insertBefore(listItem, borrowedBooksList.firstChild);
     });
-}
+};
 
 // Funktion som hämtar och visar de lånade böckerna när sidan laddas
 async function displayBorrowedBooks() {

@@ -15,7 +15,7 @@
 <body>
     <header>
 
-        <div class="notification-bar">
+        <div class="site-notification">
             <span>Välkommen! Du är inloggad som:</span>
         </div>
 
@@ -42,32 +42,19 @@
     </header>
 
     <main> 
- 
-        <section class="bg-light">
 
-            <h1 class="inner-wrapper"></h1>
+        <section id="books">
 
-            <div class="grid grid-2-col hero inner-wrapper"> 
-
-                <div class="hero-left">
-                    <h2>Lånehistorik</h2>
-                    <ul id="borrowedBooksList" class="books-loaned"></ul>     
-                </div>
-
-                <div class="hero-right">
-                </div>    
-                
-            </div> 
-        </section>
-
-        <section class="bg-light" id="books">
-
-            <div class="inner-wrapper">
+            <div class="section-header">
 
                 <h2>Böcker</h2>      
                 <p>Här kan du som medlem låna och reservera böcker.</p>
                     
                 <p>Lämna gärna en recension när du läst ut boken!</p>
+            
+            </div>
+
+            <div class="inner-wrapper">
 
                 <ul id="memberBookListOutput" class="book-list grid grid-auto">
                 </ul>
@@ -79,7 +66,7 @@
 
                         <div id="reviewFormContainer">
 
-                            <h2>Lämna en recension</h2>
+                            <h3>Lämna recension</h3>
 
                             <!-- Element för att visa bokens titel och författare -->
                             <p id="modalBookTitle" class="book-meta"></p>
@@ -93,7 +80,7 @@
                                 <label for="reviewComment">Kommentar:</label>
                                 <textarea id="reviewComment" name="comment" rows="4" placeholder="Skriv dina tankar om boken här..." required></textarea>
                                 
-                                <button type="submit" class="button button-light">Skicka Recension</button>
+                                <button type="submit" class="button button-light">Skicka recension</button>
                             </form>
 
                         </div>
@@ -101,17 +88,21 @@
                     </div>
 
                 </div>
-        
+
             </div>
 
         </section>
 
         <section class="bg-light" id="reviews">
 
-            <div class="inner-wrapper">
-                
+            <div class="section-header">
+
                 <h2>Recensioner</h2>
                 <p>Bokrecensioner från våra medlemmar.</p>
+            
+            </div>
+
+            <div class="inner-wrapper">
                 
                 <ul id="memberReviewOutPut" class="container">
                     <!-- Review Input Result here -->
@@ -121,7 +112,23 @@
 
         </section> 
 
-        
+        <section>
+
+            <div class="section-header">
+
+                <h2>Lånehistorik</h2>      
+                <p>Dina lånade böcker.</p>
+            
+            </div>
+
+            <div class="inner-wrapper"> 
+
+                <ul id="borrowedBooksList" class="books-loaned grid grid-auto"></ul>     
+          
+            </div> 
+
+        </section>
+
         <footer>
             <div class="footer-top inner-wrapper"> 
                 
