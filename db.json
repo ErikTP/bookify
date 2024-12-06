@@ -116,7 +116,8 @@
         "Förbannade kärlek",
         "Nexus",
         "Normal people",
-        "Det börjar med oss"
+        "Det börjar med oss",
+        "Natten vi förlorade honom"
       ]
     },
     {
@@ -200,6 +201,14 @@
       "role": "user",
       "history": [],
       "reviews": []
+    },
+    {
+      "id": "103c",
+      "username": "Hanski",
+      "password": "test",
+      "role": "user",
+      "history": [],
+      "reviews": []
     }
   ],
   "reviews": [
@@ -220,6 +229,15 @@
       "comment": "Donec posuere sem mi, eu venenatis leo dignissim eu. Praesent iaculis lobortis enim, vehicula vestibulum leo dignissim vitae. Nunc aliquam neque sed erat auctor iaculis. Ut eget aliquet nisl. Suspendisse rhoncus dictum eros sed aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin eu pretium lacus.",
       "bookId": "79c0",
       "date": "2024-11-28"
+    },
+    {
+      "id": "80f3",
+      "title": "Rich boy",
+      "author": "Caroline Ringskog Ferrada-Noli",
+      "name": "Yassir",
+      "comment": "Sed accumsan ipsum vel nisl posuere sodales. Fusce porta arcu in ipsum cursus rhoncus. Integer maximus metus eget orci aliquet, at laoreet arcu fringilla. Proin tristique scelerisque orci, id bibendum purus egestas ut. Fusce id malesuada nunc. Morbi tempus viverra dapibus. Morbi accumsan arcu vitae quam volutpat, vel molestie neque semper. Aenean lobortis lobortis imperdiet. ",
+      "bookId": "03b3",
+      "date": "2024-12-06"
     }
   ]
 }

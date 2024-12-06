@@ -56,7 +56,7 @@ a:hover {
 }
 
 /* Buttons */
-.button {
+button {
     background: var(--tomato);
     border-radius: 1rem;
     border: 0;
@@ -135,7 +135,7 @@ nav a:visited {
 /* Site content wrapper */
 .inner-wrapper {
     margin-inline: auto;
-    width: min(100% - 3rem, 80rem);
+    width: min(100% - 3rem, 80%);
 }
 
 /* Section */
