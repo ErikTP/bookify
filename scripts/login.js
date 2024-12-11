@@ -11,7 +11,7 @@ loginForm.addEventListener('submit', async (event) => {
     const password = passwordInput.value.trim();
 
     if (username === '') {
-        usernameInput.setCustomValidity('Vänligen fyll i användarnamn!');
+        usernameInput.setCustomValidity('Fyll i användarnamn!');
         usernameInput.reportValidity();
         return;
     } else {
@@ -19,7 +19,7 @@ loginForm.addEventListener('submit', async (event) => {
     }
 
     if (password === '') {
-        passwordInput.setCustomValidity('Vänligen fyll i lösenord!');
+        passwordInput.setCustomValidity(' Fyll i lösenord!');
         passwordInput.reportValidity();
         return;
     } else {
