@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Läs, dela och upptäck böcker hos oss på Bokklubben!">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
     <script src="scripts/member.js" defer ></script>
     <script src="scripts/member-review.js" defer ></script>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/member.css">
     <title>Bokklubben</title>
 </head>
 
 <body>
     <header>
+
+        <div class="site-notification">
+            <span>Välkommen! Du är inloggad som:</span>
+        </div>
+
         <div class="site-header inner-wrapper">
             
             <span class="site-logo">
@@ -27,13 +28,13 @@
             <nav> 
                 <ul>
                     <li> 
-                        <a href="#books">Lästips</a>
+                        <a href="#books">Böcker</a>
                     </li>
                     <li> 
                         <a href="#reviews">Recensioner</a>
                     </li>
                     <li> 
-                        <a href="login.html">Logga in</a>
+                        <a href="#logout">Logga ut</a>
                     </li>
                 </ul>
             </nav>
@@ -41,37 +42,21 @@
     </header>
 
     <main> 
- 
-        <section class="bg-light">
 
-            <h1 class="inner-wrapper">Välkommen member!</h1>
+        <section id="books">
 
-            <div class="grid grid-2-col hero inner-wrapper"> 
+            <div class="section-header">
 
-                <div class="hero-left">
-
-                    <h2>Mina lån</h2>
-                    <p>Lånade böcker just nu.</p>
-
-                </div>
-
-                <div class="hero-right">
-                    <h2>Min lånehistorik</h2>
-                    <p>Här kan medlemmen se sin lånehistorik</p>
-                </div>    
-                
-            </div> 
-        </section>
-
-
-        <section class="bg-light">
+                <h2>Böcker</h2>      
+                <p>Här kan du som medlem låna och reservera böcker.</p>
+                    
+                <p>Lämna gärna en recension när du läst ut boken!</p>
+            
+            </div>
 
             <div class="inner-wrapper">
 
-                <h2>Låna böcker</h2>      
-                <p>Här kan du som medlem låna och reservera böcker.</p>
-
-                <ul id="memberBookListOutput" class="memberBookListOutput grid grid-member-books">
+                <ul id="memberBookListOutput" class="book-list grid grid-auto">
                 </ul>
 
                 <!-- Modal HTML -->
@@ -81,7 +66,7 @@
 
                         <div id="reviewFormContainer">
 
-                            <h2>Lämna en recension</h2>
+                            <h3>Lämna recension</h3>
 
                             <!-- Element för att visa bokens titel och författare -->
                             <p id="modalBookTitle" class="book-meta"></p>
@@ -95,7 +80,7 @@
                                 <label for="reviewComment">Kommentar:</label>
                                 <textarea id="reviewComment" name="comment" rows="4" placeholder="Skriv dina tankar om boken här..." required></textarea>
                                 
-                                <button type="submit" class="button button-light">Skicka Recension</button>
+                                <button type="submit" class="button button-light">Skicka recension</button>
                             </form>
 
                         </div>
@@ -103,45 +88,53 @@
                     </div>
 
                 </div>
-        
+
             </div>
 
         </section>
 
         <section class="bg-light" id="reviews">
 
-            <div class="inner-wrapper">
-                
+            <div class="section-header">
+
                 <h2>Recensioner</h2>
                 <p>Bokrecensioner från våra medlemmar.</p>
+            
+            </div>
+
+            <div class="inner-wrapper">
                 
                 <ul id="memberReviewOutPut" class="container">
                     <!-- Review Input Result here -->
                 </ul>
 
-                <h2>Mina recensioner</h2>
-                <p>Visa enbart recensioner från användaren?</p>
-                <p>Med möjlighet att radera dessa.</p>
-
             </div>
 
         </section> 
 
-        <section class="inner-wrapper">
-            <h2>Lånehistorik</h2>
-            <p>Här kan medlemmen se sin lånehistorik</p>
-            <p>Här ska vara ett meddelande som säger att lånehistoriken är tom om inget har lånats av användaren.</p>
-            <p>Annars listas tidigare lånade böcker och även de som är lånade just nu.</p>
-            <p>Återlämnade böcker kan ha status läst.</p>
-            <p>Böcker som är lånade nu böcker kan ha status läst.</p>
+        <section>
+
+            <div class="section-header">
+
+                <h2>Lånehistorik</h2>      
+                <p>Dina lånade böcker.</p>
+            
+            </div>
+
+            <div class="inner-wrapper"> 
+
+                <ul id="borrowedBooksList" class="books-loaned grid grid-auto"></ul>     
+          
+            </div> 
+
         </section>
-        
+
         <footer>
             <div class="footer-top inner-wrapper"> 
                 
                 <h2>Kontakta oss</h2>
                 
-                <div class="grid auto-grid"> 
+                <div class="grid grid-auto"> 
                     <p> Telefon: <a href="tel:+46000099111">+46 12 34 56 789</a> </p>
                     <p> E-post: <a href="mailto:email@example.com">hej@bokklubben.se</a></p>   
                     <ul>

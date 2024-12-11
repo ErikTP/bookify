@@ -134,22 +134,22 @@ const createReviewElement = (review) => {
   reviewItem.classList.add("review"); // Add classname
 
   const titleHeading = document.createElement("h3");  
-  titleHeading.classList.add("book-title"); // Add classname
+  titleHeading.classList.add("review-title"); // Add classname
   titleHeading.textContent = review.title;
 
   const authorSpan = document.createElement("span");
-  authorSpan.classList.add("book-meta"); // Add classname
+  authorSpan.classList.add("review-book-author"); // Add classname
   authorSpan.textContent = review.author;
 
   const commentParagraph = document.createElement("p"); 
   commentParagraph.textContent = review.comment;
 
   const nameSpan = document.createElement("span"); 
-  nameSpan.classList.add("book-meta"); // Add classname
+  nameSpan.classList.add("review-meta"); // Add classname
   nameSpan.textContent = `Postad av: ${review.name}`;
 
   const dateSpan = document.createElement("span"); 
-  dateSpan.classList.add("book-meta"); // Add classname
+  dateSpan.classList.add("review-meta"); // Add classname
   dateSpan.textContent = ` ${review.date}`;
 
   // Add the elements to the review item
