@@ -31,10 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     
                     
 
-                    if (!user.history || user.history.length === 0) {
+                    if (!user.borrowed || user.borrowed.length === 0) {
                         history.textContent = "Det finns ingen lånehistorik här.";
                     } else {
-                        history.textContent = user.history.join(", ");
+                        const borrowedItems = user.borrowed.map(item => item.title).join(", ");
+                        history.textContent = borrowedItems || "Ingen information tillgänglig.";
                     }
 
                     const reviews = document.createElement("details");
@@ -93,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const updatedUser = await response.json();
                                     span.textContent = `Username: ${updatedUser.username} Password: ${updatedUser.password}, Role: ${updatedUser.role}`;
                                     history.textContent = updatedUser.history ? updatedUser.history.join(", ") : "Listan är tom";
+                        
                                 } else {
                                     console.log("Error updating user.");
                                 }
