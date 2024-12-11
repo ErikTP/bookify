@@ -144,6 +144,29 @@ input[type="file"] {
     transition: 0.3s;
     border: 2px solid #247e77;
 }
+
+.logout-button {
+    padding: 0.3rem 2rem;
+    float: right;
+    border: 2px solid #247e77;
+}
+
+.logout-button:hover {
+    background-color:#247e77;
+    color: white;
+    transition: 0.3s;
+    border: 2px solid #247e77;
+}
+
+.admin-header {
+    width: 100%;
+    padding: 1rem;
+    background-color: #247e77;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.893);
+}
+
 .books-container {
     list-style: none;
     height: 550px;

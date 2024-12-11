@@ -85,7 +85,7 @@
     {
       "username": "jeppe",
       "password": "jeppe",
-      "role": "jeppe",
+      "role": "admin",
       "id": "5d4f",
       "history": [
         "Steven Kang's Djungelboken",
@@ -228,6 +228,22 @@
       "id": "103c",
       "username": "Hanski",
       "password": "test",
+      "role": "user",
+      "history": [],
+      "reviews": []
+    },
+    {
+      "id": "2bf9",
+      "username": "hihihi",
+      "password": "ihihih",
+      "role": "user",
+      "history": [],
+      "reviews": []
+    },
+    {
+      "id": "4d56",
+      "username": "nyny",
+      "password": "ny",
       "role": "user",
       "history": [],
       "reviews": []
