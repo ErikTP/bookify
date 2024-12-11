@@ -231,6 +231,14 @@
       "role": "user",
       "history": [],
       "reviews": []
+    },
+    {
+      "id": "8a45",
+      "username": "jesper",
+      "password": "password",
+      "role": "admin",
+      "history": [],
+      "reviews": []
     }
   ],
   "reviews": [
