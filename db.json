@@ -26,8 +26,8 @@
       "synopsis": "När Liam Noone dör, till synes i en tragisk olycka, lämnar han ett världsomspännande hotellimperium och flera familjer efter sig. Nora, dottern från hans första äktenskap, har tappat kontakten med sin far men när hennes halvbror söker upp henne med chockerande misstankar dras hon motvilligt in i fallet och därmed också en värld hon sökt sig bort ifrån. I takt med att de omaka syskonen rör sig närmare svaret på vad som hände den där natten på klipporna, finner de att händelser begravda i det förflutna kan komma att förändra deras framtid för alltid.",
       "genre": "Romantik",
       "cover": "/images/natten-vi-forlorade-honom.jpg",
-      "status": "unavailable",
-      "borrowedBy": "ce68",
+      "status": "available",
+      "borrowedBy": null,
       "reservedBy": null
     },
     {
@@ -37,7 +37,8 @@
       "synopsis": "Connell och Marianne växer upp i samma småstad. Han är en populär fotbollskille, hon rik men ensam. De börjar prata, snart ligger de med varandra, kort därefter gör de slut. Så fortsätter det, hela vägen till universitetet i Dublin. Där är rollerna plötsligt omvända: Marianne omges av människor som vill vara henne nära medan Connell sluter sig inåt. Rooney skildrar livet som det levs just nu. 'Normala människor' är en roman om kärlek, klass och makt, och om hur en person kan förändra en annan människas liv.",
       "genre": "Mysterium",
       "cover": "/images/normal-people.jpg",
-      "status": "available"
+      "status": "available",
+      "borrowedBy": null
     },
     {
       "id": "03b3",
@@ -57,7 +58,8 @@
       "genre": "Mytologi",
       "cover": "/images/testamente.jpg",
       "status": "unavailable",
-      "borrowedBy": "103c"
+      "borrowedBy": "103c",
+      "reservedBy": "ce68"
     },
     {
       "id": "600e",
@@ -106,8 +108,9 @@
       "synopsis": "Mia Edwall Insulander är generalsekreterare för Advokatsamfundet och har arbetat som advokat inriktad på familjerätt i över 20 år. I debutromanen \"Tvisten\" skildrar hon med skrämmande tydlighet vad som kan hända när besluten om våra närmaste relationer överlämnas till domstol och myndigheter.",
       "genre": "Romantik",
       "cover": "/images/tvisten.jpg",
-      "status": "available",
-      "reviews": []
+      "status": "unavailable",
+      "reviews": [],
+      "borrowedBy": "ce68"
     },
     {
       "id": "7dc0",

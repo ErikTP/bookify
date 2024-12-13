@@ -181,6 +181,26 @@ async function updateUserBorrowedBooks(userId, bookId) {
     }
 };
 
+// Funktion för att uppdatera en bok (t.ex. ändra status)
+async function updateBook(bookId, updatedData) {
+    try {
+        const response = await fetch(`http://localhost:3005/books/${bookId}`, {
+            method: "PATCH", // PATCH används för att delvis uppdatera resurser
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedData), // Skickar data som JSON.
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to update book"); // Ger fel om svar inte är OK
+        }
+
+        return await response.json(); // Returnerar den uppdaterade bokinformationen
+    } catch (error) {
+        console.error("Error updating book:", error); // Loggar fel om det inträffar
+        return null; // Returnerar null om det blir fel
+    }
+}
+
 // Funktion som hanterar klick för knappar kopplade till böckerna som kan lånas/reseveras
 async function handleButtonClick(event) {
     const button = event.target; // Hämtar elementet som användaren klickade på
