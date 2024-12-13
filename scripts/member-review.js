@@ -162,4 +162,4 @@ const createReviewElement = (review) => {
   return reviewItem;
 };
 
-   
+window.addEventListener("DOMContentLoaded", () => renderMemberReviews());
