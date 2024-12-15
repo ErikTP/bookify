@@ -14,7 +14,9 @@ function renderBooks(bookList, element) {
 
         // Skapar och lägger till en bild för bokomslaget
         const bookCover = document.createElement("img");
+        bookCover.classList.add("book-info"); // Lägger till en CSS-klass
         bookCover.src = book.cover || "default-cover.jpg"; // Använd en standardbild om omslag saknas
+        bookCover.addEventListener("click", () => openBookInfoModal(book)); // Eventlyssnare vid klick
         listItem.appendChild(bookCover);
 
         // Skapar och lägger till bokens titel
@@ -340,3 +342,39 @@ const updateBookReservation = async (bookId, reservedBy) => {
         return false;
     }
 };
+
+// Hämta Book Info Modal element
+const bookInfcloseButton = document.querySelector(".modal-close-button");
+
+// Funktion för att öppna modalen och visa bokinfo
+function openBookInfoModal(book) {
+    const modalTitle = document.querySelector("#bookInfoModal .modal-title");
+    const modalAuthor = document.querySelector("#bookInfoModal .book-meta");
+    const modalDescription = document.querySelector("#bookInfoModal .modal-description");
+    const modalCover = document.querySelector("#bookInfoModal .modal-book-cover");;
+
+    // Uppdatera modalen med bokens information
+    modalTitle.textContent = book.title;
+    modalAuthor.textContent = `Författare: ${book.author}`;
+    modalDescription.textContent = book.synopsis || "Ingen beskrivning tillgänglig.";
+    modalCover.src = book.cover || "default-cover.jpg";
+
+    // Visa modalen
+    bookInfoModal.style.display = "block";
+}
+
+// Funktion för att stänga modalen
+function closeBookInfoModal() {
+    bookInfoModal.style.display = "none";
+}
+
+// Lägg till händelsehanterare för stäng-knappen
+bookInfcloseButton.addEventListener("click", closeBookInfoModal);
+
+// Lägg till händelse för att stänga modalen när man klickar utanför den
+window.addEventListener("click", (event) => {
+    if (event.target === bookInfoModal) {
+        closeBookInfoModal();
+    }
+});
+

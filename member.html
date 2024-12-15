@@ -61,10 +61,29 @@
                 <ul id="memberBookListOutput" class="book-list grid grid-auto">
                 </ul>
 
-                <!-- Modal HTML -->
-                <div id="reviewModal" class="review-modal">
-                    <div class="review-modal-content">
-                        <span class="review-modal-close-button">&times;</span>
+                <!-- Modal Book Information HTML -->
+                <div id="bookInfoModal" class="modal">
+                    <div class="modal-content grid grid-2-col">
+
+                        <span class="modal-close-button">&times;</span>
+
+                        <div>
+                            <img class="modal-book-cover" src="" alt="Bokomslag" />          
+                        </div>
+        
+                        <div class="modal-flex">             
+                            <h3 class="modal-title"></h3>
+                            <p class="book-meta"></p>
+                            <p class="modal-description"></p>
+                        </div>
+
+                    </div>
+                </div>              
+
+                <!-- Modal Review HTML -->
+                <div id="reviewModal" class="modal">
+                    <div class="modal-content review-modal-content">
+                        <span class="modal-close-button review-close-button">&times;</span>
 
                         <div id="reviewFormContainer">
 
@@ -80,7 +99,7 @@
                                 <input type="text" name="reviewWritersName" id="reviewWritersName" required placeholder="Ditt namn"/>
                                 
                                 <label for="reviewComment">Kommentar:</label>
-                                <textarea id="reviewComment" name="comment" rows="4" placeholder="Skriv dina tankar om boken här..." required></textarea>
+                                <textarea id="reviewComment" name="comment" rows="8" placeholder="Skriv dina tankar om boken här..." required></textarea>
                                 
                                 <button type="submit" class="button button-light">Skicka recension</button>
                             </form>

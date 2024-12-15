@@ -3,7 +3,7 @@ let selectedBookId = null;
 
 // Get the modal element and the close button
 const reviewModal = document.getElementById("reviewModal");
-const closeButton = document.querySelector(".review-modal-close-button");
+const closeButton = document.querySelector(".review-close-button");
 const reviewForm = document.getElementById("reviewForm");
 
 // Function to handle review button clicks and open the modal
