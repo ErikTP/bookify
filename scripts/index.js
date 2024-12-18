@@ -11,7 +11,7 @@ function hideMenu() {
 // Funktion för att hämta böcker
 async function fetchBooks() {
     try {
-        const response = await fetch('http://localhost:3000/books');
+        const response = await fetch('http://localhost:3005/books');
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -85,7 +85,7 @@ function initializeSlideshow() {
 
 async function fetchReviews() {
   try {
-      const response = await fetch('http://localhost:3000/reviews');
+      const response = await fetch('http://localhost:3005/reviews');
       if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
       }
