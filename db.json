@@ -221,27 +221,33 @@
       "id": "9f74",
       "title": "Testamente",
       "author": "Nina Wähä",
+      "profilePicture": "/images/user1.jpg",
       "name": "Hannele",
       "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere sem mi, eu venenatis leo dignissim eu. Praesent iaculis lobortis enim, vehicula vestibulum leo dignissim vitae. Nunc aliquam neque sed erat auctor iaculis. Ut eget aliquet nisl. Suspendisse rhoncus dictum eros sed aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin eu pretium lacus.",
       "bookId": "4e1a",
+      "rating": 5,
       "date": "2024-11-28"
     },
     {
       "id": "52fd",
       "title": "Nexus",
       "author": "Yuval Noah Harari",
+      "profilePicture": "/images/user2.jpg",
       "name": "Åke",
       "comment": "Donec posuere sem mi, eu venenatis leo dignissim eu. Praesent iaculis lobortis enim, vehicula vestibulum leo dignissim vitae. Nunc aliquam neque sed erat auctor iaculis. Ut eget aliquet nisl. Suspendisse rhoncus dictum eros sed aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin eu pretium lacus.",
       "bookId": null,
+      "rating": 4,
       "date": "2024-11-28"
     },
     {
       "id": "80f3",
       "title": "Rich boy",
       "author": "Caroline Ringskog Ferrada-Noli",
+      "profilePicture": "/images/user3.jpg",
       "name": "Yassir",
       "comment": "Sed accumsan ipsum vel nisl posuere sodales. Fusce porta arcu in ipsum cursus rhoncus. Integer maximus metus eget orci aliquet, at laoreet arcu fringilla. Proin tristique scelerisque orci, id bibendum purus egestas ut. Fusce id malesuada nunc. Morbi tempus viverra dapibus. Morbi accumsan arcu vitae quam volutpat, vel molestie neque semper. Aenean lobortis lobortis imperdiet. ",
       "bookId": "03b3",
+      "rating": 3,
       "date": "2024-12-06"
     }
   ]
