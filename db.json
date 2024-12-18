@@ -8,7 +8,8 @@
       "cover": "/images/det-borjar-med-oss.jpg",
       "id": "42b4",
       "status": "available",
-      "reservedBy": "ce68"
+      "reservedBy": "ce68",
+      "borrowedBy": null
     },
     {
       "id": "6d39",
@@ -17,7 +18,8 @@
       "synopsis": "När Tate Collins flyttar till San Fransisco för att plugga till sjuksköterska är Miles Archer den första hon träffar. Han ligger redlös i korridoren utanför hennes brors lägenhet, där Tate ska bo. Miles Archer är pilot och bär på ett mörkt förflutet. Han är en gåtfull person som aldrig ler, aldrig verkar glad och som har bestämt sig för att aldrig dejta, förälska sig eller känna någonsin igen.Det är uppenbart att det inte är kärlek vid första ögonkastet mellan Tate och Miles. Kanske kan man inte ens kalla dem vänner. Vad de däremot upptäcker att de har, är en obestridlig och laddad attraktion för varandra. De enas om det perfekta upplägget: hon vill inte ha ett förhållande och han vill inte ha kärlek. Då kvarstår sex. Deras relation är enkel, så länge Tate håller sig till de två villkor Miles satt upp: Fråga aldrig om det förflutna. Förvänta dig aldrig en framtid.Båda tror att de kan hantera en sådan relation, men det visar sig vara mer komplicerat än de tänkt sig.",
       "genre": "Cool book",
       "cover": "/images/forbannade-karlek.webp",
-      "status": "available"
+      "status": "available",
+      "borrowedBy": null
     },
     {
       "id": "4fa1",
@@ -158,6 +160,16 @@
           "title": "Rich boy",
           "author": "Caroline Ringskog Ferrada-Noli",
           "borrowedAt": "2024-12-13"
+        },
+        {
+          "title": "Det börjar med oss",
+          "author": "Colleen Hoover",
+          "borrowedAt": "2024-12-18"
+        },
+        {
+          "title": "Förbannade kärlek",
+          "author": "Colleen Hoover",
+          "borrowedAt": "2024-12-18"
         }
       ]
     },

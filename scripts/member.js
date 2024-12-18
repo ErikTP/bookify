@@ -141,6 +141,7 @@ function getLoggedInUser() {
 
 // Funktion som uppdaterar användarens lånade böcker i db.json
 async function updateUserBorrowedBooks(userId, bookId) {
+    
     try {
         // Hämta bokens information baserat på bookId
         const book = await fetchBookById(bookId);
@@ -163,6 +164,7 @@ async function updateUserBorrowedBooks(userId, bookId) {
         });
 
         const updatedUser = { ...userData, borrowed: borrowedBooks };
+        console.log(updatedUser);
 
         // Skicka PATCH-förfrågan för att uppdatera användarens data
         const updateResponse = await fetch(`http://localhost:3005/users/${userId}`, {
@@ -216,12 +218,21 @@ async function handleButtonClick(event) {
                 status: "unavailable",
                 borrowedBy: userLoggedIn.id, // Sätter användarens ID som låntagare
             });
-            if (updatedBook) fetchBooks(); // Hämtar och renderar böcker igen
+
+            if (updatedBook) {
+                // Uppdatera användarens lånehistorik i databasen
+                const success = await updateUserBorrowedBooks(userLoggedIn.id, bookId);
+                if (success) {
+                    fetchBooks(); // Hämta och rendera böcker igen
+                    displayBorrowedBooks(); // Uppdatera lånehistoriken i DOM
+                }
+            }
         } else if (button.getAttribute("status") === "unavailable") {
             const updatedBook = await updateBook(bookId, { // Uppdaterar bokens status till "available"
                 status: "available",
-                borrowedBy: null, // Tömmer låntagare.
+                borrowedBy: null, // Tömmer låntagare
             });
+
             if (updatedBook) fetchBooks();
         }
     }
@@ -247,6 +258,7 @@ async function handleButtonClick(event) {
     //     // KOD FÖR REDENSIONER KAN LÄGGAS TILL HÄR
     // }
 }
+
 
 // Lyssnar efter klick på hela listan med knappar (i boklistan) och anropar hanteraren
 listEl.addEventListener("click", handleButtonClick);
@@ -313,6 +325,7 @@ function renderBorrowedBooks(borrowedBooks) {
 async function displayBorrowedBooks() {
     const borrowedBooks = await fetchBorrowedBooks(); // Hämta användarens lånade böcker
     renderBorrowedBooks(borrowedBooks); // Rendera böckerna i DOM
+    console.log(borrowedBooks); 
 }
 
 // Kör funktionen när sidan laddas
@@ -377,4 +390,3 @@ window.addEventListener("click", (event) => {
         closeBookInfoModal();
     }
 });
-
