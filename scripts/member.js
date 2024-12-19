@@ -384,7 +384,7 @@ function closeBookInfoModal() {
 // Lägg till händelsehanterare för stäng-knappen
 bookInfcloseButton.addEventListener("click", closeBookInfoModal);
 
-// Lägg till händelse för att stänga modalen när man klickar utanför den
+// Lägg till evnt för att stänga modalen när man klickar utanför den
 window.addEventListener("click", (event) => {
     if (event.target === bookInfoModal) {
         closeBookInfoModal();

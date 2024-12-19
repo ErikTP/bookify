@@ -70,8 +70,9 @@
       "synopsis": "I en kuslig och upprörande dystopi skildrar Paul Lynch hur dagens Irland snabbt förändras till fascistisk terrorstat. Ett högerextremt parti får makten – efter få dagar har lag och ordning upplösts, och människor, framför allt männen, arresteras och försvinner.",
       "genre": "Skräck",
       "cover": "/images/profetens-sang.jpg",
-      "status": "available",
-      "reviews": []
+      "status": "unavailable",
+      "reviews": [],
+      "borrowedBy": "103c"
     },
     {
       "id": "9d1b",
@@ -110,9 +111,9 @@
       "synopsis": "Mia Edwall Insulander är generalsekreterare för Advokatsamfundet och har arbetat som advokat inriktad på familjerätt i över 20 år. I debutromanen \"Tvisten\" skildrar hon med skrämmande tydlighet vad som kan hända när besluten om våra närmaste relationer överlämnas till domstol och myndigheter.",
       "genre": "Romantik",
       "cover": "/images/tvisten.jpg",
-      "status": "unavailable",
+      "status": "available",
       "reviews": [],
-      "borrowedBy": "ce68"
+      "borrowedBy": null
     },
     {
       "id": "7dc0",
@@ -147,8 +148,8 @@
       "role": "user",
       "borrowed": [
         {
-          "title": "Natten vi förlorade honom",
-          "author": "Laura Dave",
+          "title": "Testamente",
+          "author": "Nina Wähä",
           "borrowedAt": "2024-12-13"
         },
         {
@@ -160,16 +161,6 @@
           "title": "Rich boy",
           "author": "Caroline Ringskog Ferrada-Noli",
           "borrowedAt": "2024-12-13"
-        },
-        {
-          "title": "Det börjar med oss",
-          "author": "Colleen Hoover",
-          "borrowedAt": "2024-12-18"
-        },
-        {
-          "title": "Förbannade kärlek",
-          "author": "Colleen Hoover",
-          "borrowedAt": "2024-12-18"
         }
       ]
     },
@@ -201,11 +192,6 @@
       "role": "user",
       "borrowed": [
         {
-          "title": "Förbannade kärlek",
-          "author": "Colleen Hoover",
-          "borrowedAt": "2024-12-13"
-        },
-        {
           "title": "Normal people",
           "author": "Sally Rooney",
           "borrowedAt": "2024-12-13"
@@ -221,9 +207,9 @@
           "borrowedAt": "2024-12-13"
         },
         {
-          "title": "Intermezzo",
-          "author": "Sally Rooney",
-          "borrowedAt": "2024-12-13"
+          "title": "Profetens sång",
+          "author": "Paul Lynch",
+          "borrowedAt": "2024-12-19"
         }
       ]
     }
