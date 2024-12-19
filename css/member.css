@@ -402,6 +402,10 @@ footer ul {
     width: 60%;
 }
 
+.modal-description {
+    font-size: clamp(0.9rem, 4vw, 1.05rem); 
+}
+
 .modal-flex {
     display: flex;
     flex-direction: column;
